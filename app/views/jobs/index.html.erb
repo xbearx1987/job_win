@@ -1,5 +1,5 @@
 <div class="col-md-12">
-  <div class="group">
+  <div class="job">
     <%= link_to("新增职缺", new_job_path, class: "btn btn-primary pull-right") %>
   </div>
   <table class="table table-hover">
@@ -24,6 +24,10 @@
         <td><%= job.company %></td>
         <td><%= job.location %></td>
         <td><%= job.contact_mail %></td>
+        <td>
+          <%= link_to("编辑", edit_job_path(job), class: "btn btn-sm btn-default")%>
+          <%= link_to("删除", job_path(job),    class: "btn btn-sm btn-default", method: :delete, data: { confirm: "Are you sure?" } )%>
+        </td>
       </tr>
       <% end %>
     </tbody>
