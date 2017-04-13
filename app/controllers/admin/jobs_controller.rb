@@ -6,7 +6,7 @@ class Admin::JobsController < ApplicationController
   layout "admin"
 
   def index
-    @jobs = Job.where(:user => current_user)
+    @jobs = Job.where(:user => current_user).order("created_at DESC")
   end
 
   def show

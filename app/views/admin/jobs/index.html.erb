@@ -7,6 +7,7 @@
       <tr>
         <td>#</td>
         <td>职缺</td>
+        <td>简历数量</td>
         <td>类型</td>
         <td>薪资</td>
         <td>公司</td>
@@ -19,6 +20,7 @@
       <tr>
         <td>#</td>
         <td><span class="<%= render_job_status(job) %>"></span> <%= link_to(job.name, job_path(job)) %></td>
+        <td><%= link_to(job.resumes.count, admin_job_resumes_path(job)) %></td>
         <td><%= job.category %></td>
         <td><%= job.wage_lower_bound %> ~ <%= job.wage_upper_bound %></td>
         <td><%= job.company %></td>
