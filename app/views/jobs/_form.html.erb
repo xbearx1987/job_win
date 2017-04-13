@@ -1,14 +1,14 @@
 <div class="col-md-4 col-md-offset-4">
   <%= simple_form_for @job do |f| %>
     <div class="form-group">
-      <%= f.input :name, input_html: { class: "form-control"} %>
-      <%= f.input :content, input_html: { class: "form-control"} %>
-      <%= f.input :company, input_html: { class: "form-control"} %>
-      <%= f.input :category, input_html: { class: "form-control"} %>
-      <%= f.input :location, input_html: { class: "form-control"} %>
-      <%= f.input :wage_lower_bound, input_html: { class: "form-control"} %>
-      <%= f.input :wage_upper_bound, input_html: { class: "form-control"} %>
-      <%= f.input :contact_mail, input_html: { class: "form-control"} %>
+      <%= f.input :name, label: '职缺名称', placeholder: '职缺名称', input_html: { class: "form-control"} %>
+      <%= f.input :content, label: '职位描述', placeholder: '职缺描述', input_html: { class: "form-control"} %>
+      <%= f.input :company, label: '公司名称', placeholder: '公司名称', input_html: { class: "form-control"} %>
+      <%= f.input :category, label: '职缺类型', input_html: { class: "form-control"} %>
+      <%= f.input :location, label: '职缺城市', input_html: { class: "form-control"} %>
+      <%= f.input :wage_lower_bound, label: '薪资下限', input_html: { class: "form-control"} %>
+      <%= f.input :wage_upper_bound, label: '薪资上限', input_html: { class: "form-control"} %>
+      <%= f.input :contact_mail, label: '联系方式', placeholder: 'user@domain.com', input_html: { class: "form-control"} %>
     </div>
     <div class="form-actions text-center">
       <%= f.submit "Submit", disable_with: "Submiting...", class: "btn btn-primary"%>
