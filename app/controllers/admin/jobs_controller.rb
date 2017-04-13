@@ -3,6 +3,8 @@ class Admin::JobsController < ApplicationController
   before_action :find_job_and_check_permission , only: [:edit, :update, :destroy]
   before_action :require_is_admin
 
+  layout "admin"
+
   def index
     @jobs = Job.where(:user => current_user)
   end
@@ -42,6 +44,20 @@ class Admin::JobsController < ApplicationController
   def destroy
     @job.destroy
       redirect_to admin_jobs_path, alert: '职缺删除成功。'
+  end
+
+  def publish
+    @job = Job.find(params[:id])
+    @job.is_hidden = false
+    @job.save
+    redirect_to :back
+  end
+
+  def hide
+    @job = Job.find(params[:id])
+    @job.is_hidden = true
+    @job.save
+    redirect_to :back
   end
 
 private
