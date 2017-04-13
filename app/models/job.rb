@@ -11,4 +11,5 @@ class Job < ApplicationRecord
   validates :contact_mail, presence: { message: "请填写联系邮箱" }
 
   belongs_to :user
+  has_many :resumes
 end
