@@ -1,5 +1,5 @@
 <div class="col-md-4 col-md-offset-4">
-  <%= simple_form_for @job do |f| %>
+  <%= simple_form_for [:admin,@job] do |f| %>
     <div class="form-group">
       <%= f.input :name, label: '职位名称', placeholder: '职位名称', input_html: { class: "form-control"} %>
       <%= f.input :content, label: '职位描述', placeholder: '职位描述', input_html: { class: "form-control"} %>
