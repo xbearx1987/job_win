@@ -1,17 +1,17 @@
-<h2>Sign up</h2>
+
+<h2>帐号注册</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :is_admin, :label => "身份", as: :radio_buttons, collection: ["一般用户", "企业用户"], checked: '一般用户' %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
+    <%= f.input :email, :label => "邮箱", placeholder: '请输入常用的邮箱地址', error: '请输入邮箱地址', required: true, autofocus: true %>
+    <%= f.input :is_admin, :label => "身份", as: :radio_buttons, collection:  [['一般用户', false], ['企业用户', true]], required: true %>
+    <%= f.input :password, :label => "密码", placeholder: '请输入密码', error: '请输入密码', required: true, hint: ("请输入 #{@minimum_password_length}-16位密码" if @minimum_password_length), input_html: { maxlength: 16 } %>
+    <%= f.input :password_confirmation, :label => "密码确认", placeholder: '请再次输入密码', error: '请输入相同的密码', required: true, input_html: { maxlength: 16 } %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "注册" %>
   </div>
 <% end %>
 

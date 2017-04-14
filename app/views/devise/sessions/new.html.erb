@@ -1,14 +1,14 @@
-<h2>Log in</h2>
+<h2>帐号登录</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    <%= f.input :email, :label => "邮箱", placeholder: '请输入已注册的邮箱', required: false, autofocus: true %>
+    <%= f.input :password, :label => "密码", placeholder: '请输入密码', required: false %>
+    <%= f.input :remember_me, :label => "记住此帐号", as: :boolean if devise_mapping.rememberable? %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+    <%= f.button :submit, "登录" %>
   </div>
 <% end %>
 
