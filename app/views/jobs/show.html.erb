@@ -2,7 +2,7 @@
 
 <p>
   <%= simple_format(@job.content) %>
-  <%= formatDate(@job.created_at) %>
+  <%= @job.created_at.strftime("%Y-%m-%d") %> 发布于职赢网
 </p>
 
 
