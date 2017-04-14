@@ -5,6 +5,7 @@
 
   <div class="form-inputs">
     <%= f.input :email, :label => "邮箱", placeholder: '请输入常用的邮箱地址', error: '请输入邮箱地址', required: true, autofocus: true %>
+    <%= f.input :name, :label => "姓名", placeholder: '请输入真实姓名', error: '请输入姓名', required: true %>
     <%= f.input :is_admin, :label => "身份", as: :radio_buttons, collection:  [['一般用户', false], ['企业用户', true]], required: true %>
     <%= f.input :password, :label => "密码", placeholder: '请输入密码', error: '请输入密码', required: true, hint: ("请输入 #{@minimum_password_length}-16位密码" if @minimum_password_length), input_html: { maxlength: 16 } %>
     <%= f.input :password_confirmation, :label => "密码确认", placeholder: '请再次输入密码', error: '请输入相同的密码', required: true, input_html: { maxlength: 16 } %>
