@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :collections
+
   namespace :admin do
     resources :jobs do
       member do
