@@ -12,4 +12,6 @@ class Job < ApplicationRecord
 
   belongs_to :user
   has_many :resumes
+  has_many :collection
+  has_many :members, through: :collection, source: :user
 end
