@@ -30,7 +30,7 @@
           <%= link_to("编辑", edit_admin_job_path(job), class: "btn btn-sm btn-default")%>
           <%= link_to("删除", admin_job_path(job), class: "btn btn-sm btn-default", method: :delete, data: { confirm: "确定删除此职缺?" } )%>
           <% if job.is_hidden %>
-            <%= link_to("显示", publish_admin_job_path(job), :method => :post, class: "btn btn-sm btn-default")%>
+            <%= link_to("显示", publish_admin_job_path(job), :method => :post, class: "btn btn-sm btn-success")%>
           <% else %>
             <%= link_to("隐藏", hide_admin_job_path(job), :method => :post, class: "btn btn-sm btn-default")%>
           <% end %>
