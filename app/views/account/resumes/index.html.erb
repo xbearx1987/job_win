@@ -1,0 +1,35 @@
+<div class="col-md-12 job-content">
+<% if @resumes.length > 0 %>
+  <h2 class="text-center">投递过的职位</h2>
+  <div class="col-md-12">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <td>#</td>
+          <td>职缺</td>
+          <td>类型</td>
+          <td>薪资</td>
+          <td>公司</td>
+          <td>地点</td>
+          <td>联系方式</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @resumes.each do |resume| %>
+        <tr>
+          <td>#</td>
+          <td><%= link_to(resume.job.name, job_path(resume.job)) %></td>
+          <td><%= resume.job.category %></td>
+          <td><%= resume.job.wage_lower_bound %> ~ <%= resume.job.wage_upper_bound %></td>
+          <td><%= resume.job.company %></td>
+          <td><%= resume.job.location %></td>
+          <td><%= resume.job.contact_mail %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <p class="text-center">你还没收藏任何职位哦！ <%= link_to("立即查看职缺", jobs_path, class: "btn btn-lg btn-success") %></p>
+<% end %>
+</div>
