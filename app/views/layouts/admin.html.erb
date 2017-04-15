@@ -9,18 +9,15 @@
     </head>
 
     <body>
-
-        <div class="container-fluid">
+        <div class="container-fluid admin-content">
             <%= render "common/navbar" %>
             <%= render "common/flashes" %>
             <div class="row">
               <div class="col-md-2">
                 <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
                    <li class="active"><%= link_to("Jobs", admin_jobs_path ) %> </li>
-
                 </ul>
               </div>
-
               <div class="col-md-10">
                 <%= yield %>
               </div>

@@ -1,3 +1,4 @@
+<div class="col-md-12 job-content">
 <% if @collections.length > 0 %>
   <h2 class="text-center">我收藏的职位</h2>
   <div class="col-md-12">
@@ -31,3 +32,4 @@
 <% else %>
   <p class="text-center">你还没收藏任何职位哦！ <%= link_to("立即查看职缺", jobs_path, class: "btn btn-lg btn-success") %></p>
 <% end %>
+</div>

@@ -54,6 +54,18 @@ section{
     padding-bottom: 50px;
 }
 
+.job-content{
+  min-height: 425px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.admin-content{
+  min-height: 425px;
+  margin-top: 85px;
+  margin-bottom: 100px;
+}
+
 .p-l-0{
     padding-left: 0;
 }
@@ -272,7 +284,6 @@ single-work span i.fa,
     background-color: #4A6BB5;
     border-color: #4A6BB5;
 }
-
 
 
 /* media quaries */
