@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => "users/registrations" }
 
-  root 'jobs#index'
+  root 'welcome#index'
 
   resources :jobs do
     resources :resumes
