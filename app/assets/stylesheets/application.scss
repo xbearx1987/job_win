@@ -691,12 +691,16 @@ single-work span i.fa,
       margin-top: 35px;
       width: 550px;
     }
+    a{
+      text-decoration:none;
+    }
 }
 
 .our-experts .expert-box{
     text-align: center;
     background-color: #fff;
     box-shadow: 0px 0px 10px 2px #aaa;
+    border-radius: 5px;
     width: 225px;
     height: 315px;
     margin-top: 25px;
@@ -713,6 +717,7 @@ single-work span i.fa,
         background-color: #4A6BB5;
         border-radius: 50px;
         color: #fff;
+        position: absolute;
 
         font-size: 30px;
         height: 55px;
@@ -734,10 +739,11 @@ single-work span i.fa,
       margin-bottom: 20px;
       font-size: 18px;
     }
+
 }
 
 .our-experts .expert-box:hover{
-    box-shadow: 2px 2px 10px 2px #666;
+    box-shadow: 0px 0px 10px 2px #888;
 
     img{
       opacity:0.75;
@@ -826,9 +832,7 @@ single-work span i.fa,
     div{
       margin-top: 15px;
     }
-
 }
-
 
 /*===== contact ====*/
 .contact{
@@ -932,26 +936,117 @@ single-work span i.fa,
 
 /*===== footer ====*/
 .footer{
-    background-color: #121212;
-    padding: 5px 0;
-}
-
-.footer p{
-    color: #707070;
-    color: #aaa;
-    line-height: 2.5;
-    font-size: 10px;
-    margin-bottom: 0px
-}
-
-.footer span i.lnr {
-    background-color: #4A6BB5;
+    text-align: center;
+    height: 250px;
+    background-color: #002E2E;
+    padding: 15px 0;
     color: #fff;
-    cursor: pointer;
-    float: right;
-    font-size: 16px;
-    height: 30px;
-    margin-top: 0;
-    padding: 7px;
-    width: 30px;
+
+    h4{
+        font-size: 16px;
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+
+    p{
+        font-size: 14px;
+    }
+
+    ul{
+
+    }
+
+    li{
+      margin-top: 5px;
+    }
+
+    a{
+      text-decoration:none;
+      color: #ccc;
+    }
+    a:hover,
+    a:active,
+    a:focus{
+      color: #35CCC6;
+    }
+
+    img{
+      width: 35px;
+      margin: 5px;
+    }
+
+    img:hover{
+      opacity: 0.75;
+    }
+
+    p{
+      a{
+        color: #4A6BB5;
+      }
+    }
+
+    .footer-box{
+      text-align: left !important;
+      margin-top: 15px;
+    }
+}
+
+.footer-content{
+  font-size: 16px;
+  font-family: Raleway;
+  color: #ddd;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  font-weight: 200;
+
+  img{
+    width: 25px;
+    margin-left: 7.5px;
+    margin-right: -0.1px;
+  }
+  img:hover{
+    opacity: 1;
+  }
+
+}
+
+.goodjob{
+  float: right;
+  margin-top: -20px;
+  img{
+    width: 50px;
+  }
+  a:hover{
+    opacity: 0.45;
+  }
+
+}
+
+.goTop {
+    height: 35px;
+    width: 35px;
+    background-color: #fff;
+    border-radius: 5px;
+    position: fixed;
+    top: 90%;
+    right: 3%;
+    display: none;
+
+    box-shadow: 1px 1px 3px #666;
+}
+.goTop span {
+    color: #000;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+
+    font-size: 20px;
+}
+
+.goTop:hover {
+    background-color: #4A6BB5;
+
+    span{
+      color: #fff;
+    }
 }
