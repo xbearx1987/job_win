@@ -34,10 +34,9 @@ body{
 }
 
 p{
-    font-family: 'Open Sans', sans-serif;
-    font-size: 12.5px;
+    font-size: 14px;
     line-height: 20px;
-    font-weight: 100;
+    // font-weight: 100;
 }
 
 *{
@@ -86,14 +85,31 @@ section{
 }
 
 h2.section-title{
-    text-transform: uppercase;
     color: #4C4C4C;
-    margin-top: 0;
-    font-family: "Raleway",sans-serif;
     margin-bottom: 30px;
-    word-spacing: 5px;
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 700;
+}
+
+p.index-contect{
+    color: #666;
+    line-height: 34px;
+    padding: 0 7px;
+}
+
+.short-line {
+    display: block;
+    background: #35CCC6;
+    border-style: none;
+    border-radius: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -10px;
+    margin-bottom: 30px;
+    z-index: 53;
+    width: 100px;
+    height: 1.5px;
+    position: relative;
 }
 
 .section-para{
@@ -687,17 +703,22 @@ single-work span i.fa,
 
 /*===== our experts ====*/
 .our-experts{
-    padding-top: 70px;
-    padding-bottom: 40px;
+    // padding-top: 70px;
+    // padding-bottom: 40px;
     background-color: #F7F7F7;
+
+    img{
+      margin-top: 35px;
+      width: 550px;
+    }
 }
 
 .our-experts .section-title{
-    margin-top: 30px;
+    // margin-top: 10px;
 }
 
 .our-experts p{
-    margin-bottom: 25px;
+    // margin-bottom: 25px;
 }
 
 .our-experts .btn.btn-primary{
