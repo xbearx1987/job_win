@@ -123,15 +123,12 @@ p.index-contect{
 }
 
 .btn.btn-default-welcome{
-    background-color: #4A6BB5;
-    color: #fff;
-    border-color: #4A6BB5;
-    border-radius: 0;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    word-spacing: 3px;
-    font-size: 16px;
-    margin: 5px;
+  background-color: transparent;
+  color: #fff;
+  border-color: #fff;
+  padding: 10px 20px;
+  font-size: 20px;
+  letter-spacing: 1px;
 }
 
 .btn.btn-primary-welcome{
@@ -755,15 +752,26 @@ single-work span i.fa,
     }
 }
 
+.our-brand{
+    background-color: #F2F2F2;
+
+    img{
+      margin: 25px 15px 35px 15px;
+      width: 150px;
+    }
+
+}
 
 
 /*===== talk about us ====*/
 .talk-about-us{
-    padding-bottom: 110px;
-    padding-top: 100px;
+    padding-bottom: 160px;
+    padding-top: 60px;
+    color: #666;
 }
 
 .talk-about-us strong{
+    margin-top: 25px;
     color: #4A6BB5;
     font-weight: 600;
     font-style: italic;
@@ -779,9 +787,10 @@ single-work span i.fa,
 }
 
 .talk-about-us .item > p{
-    max-width: 650px;
+    max-width: 600px;
+    letter-spacing: 1px;
     margin: 0 auto;
-    line-height: 1.9;
+    line-height: 2;
     margin-bottom: 20px;
 }
 
@@ -810,30 +819,16 @@ single-work span i.fa,
 
 /*===== our client ====*/
 .support{
-     background: #4b6cb7; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #4b6cb7 , #182848); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #4b6cb7 , #182848); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    text-align: center;
+    height: 200px;
+    background: image_url("start.jpg") no-repeat scroll top center/ cover;
+
+    div{
+      margin-top: 15px;
+    }
+
 }
 
-.support .media-left, .media > .pull-left {
-    padding-right: 25px;
-}
-
-.support strong{
-    color: #fff;
-    margin-bottom: 10px;
-    display: block;
-    font-size: 17px;
-    line-height: 1;
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-.support p{
-    color: #eee;
-    font-size: 13px;
-    letter-spacing: -0.4px;
-}
 
 /*===== contact ====*/
 .contact{
