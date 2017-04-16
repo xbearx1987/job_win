@@ -10,15 +10,17 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <%= link_to("职赢网", root_path, class: "navbar-brand default-logo scroll") %>
+                        <%= link_to root_path, class: "navbar-brand default-logo scroll" do %>
+                          <%= image_tag("logo.png", :class => "logo_img") %> 职赢网
+                        <% end %>
                     </div>
 
                     <div class="collapse navbar-collapse top-nav" id="menu-4">
                         <ul class="nav navbar-nav navbar-right">
-                            <!-- <li><a class="scroll" href="#service">Service</a></li> -->
+                          <li><%= link_to("职缺列表", jobs_path, class: "scroll") %></li>
                             <% if !current_user %>
-                              <li><%= button_to("注册", new_user_registration_path, method: :get, class: "btn btn-default navbar-btn") %> </li>
                               <li><%= button_to("登录", new_user_session_path, method: :get, class: "btn btn-default navbar-btn") %></li>
+                              <li><%= button_to("注册", new_user_registration_path, method: :get, class: "btn btn-default navbar-btn") %> </li>
                             <% else %>
                               <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
