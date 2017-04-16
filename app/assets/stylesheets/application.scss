@@ -687,76 +687,71 @@ single-work span i.fa,
     p{
       letter-spacing: 1px;
     }
-    img{
-      margin-top: 35px;
-      width: 550px;
-    }
     a{
       text-decoration:none;
     }
 }
 
+
+.category_1{
+  color: #0070DE !important;
+}
+.category_2{
+  color: #69CCF0 !important;
+}
+.category_3{
+  color: #00FF96 !important;
+}
+.category_4{
+  color: #FF7D0A !important;
+}
+.category_5{
+  color: #C79C6E !important;
+}
+.category_6{
+  color: #A330C9 !important;
+}
+.category_7{
+  color: #C41F3B !important;
+}
+.category_all{
+  color: #9482C9 !important;
+}
+
+
 .our-experts .expert-box{
     text-align: center;
     background-color: #fff;
-    box-shadow: 0px 0px 10px 2px #aaa;
+    // box-shadow: 0px 0px 10px 2px #aaa;
+    border: 2px solid #ccc;
     border-radius: 5px;
     width: 225px;
-    height: 315px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-
-    opacity:0.9;
-    filter:alpha(opacity=90);
-    img {
-        margin-top: auto;
-        max-width: 225px;
-    }
+    height: 165px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 
     span {
-        background-color: #4A6BB5;
-        border-radius: 50px;
-        color: #fff;
-        position: absolute;
-
-        font-size: 30px;
-        height: 55px;
-        margin-top: -28px;
-        margin-left: -25px;
-        padding-top: 13px;
-        position: absolute;
-        width: 55px;
-
-        opacity:0.95;
-        filter:alpha(opacity=95);
-        box-shadow: 0px 0px 7.5px 1px #666;
+        font-size: 50px;
+        margin-top: 35px;
     }
     h3{
-      color: 000;
       font-weight: 700;
       letter-spacing: 1px;
-      margin-top: 45px;
-      margin-bottom: 20px;
       font-size: 18px;
     }
-
+    p{
+      margin-top: -10px;
+      letter-spacing: 1px;
+    }
 }
 
 .our-experts .expert-box:hover{
-    box-shadow: 0px 0px 10px 2px #888;
-
-    img{
-      opacity:0.75;
-    }
-
-    span {
-        background-color: #002E2E;
-    }
-    a{
-      font-size: 30px;
-      color: 000;
-    }
+    border: 2px solid #4A6BB5;
+    opacity: 0.85;
 }
+
+
+
 
 .our-brand{
     background-color: #F2F2F2;
