@@ -16,8 +16,12 @@
                     </div>
 
                     <div class="collapse navbar-collapse top-nav" id="menu-4">
+                        <ul class="nav navbar-nav">
+                          <li><%= link_to("首页", root_path, class: "scroll") %></li>
+                          <li><%= link_to("工作", jobs_path, class: "scroll") %></li>
+                        </ul>
                         <ul class="nav navbar-nav navbar-right">
-                          <li><%= link_to("职缺列表", jobs_path, class: "scroll") %></li>
+                          <li class="divider" role="separator"></li>
                             <% if !current_user %>
                               <li><%= button_to("登录", new_user_session_path, method: :get, class: "btn btn-default navbar-btn") %></li>
                               <li><%= button_to("注册", new_user_registration_path, method: :get, class: "btn btn-default navbar-btn") %> </li>
@@ -29,11 +33,12 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                   <% if current_user.admin? %>
-                                    <li> <%= link_to("管理后台", admin_jobs_path) %> </li>
+                                    <li> <%= link_to("企业专区", admin_jobs_path) %> </li>
                                     <li class="divider"> </li>
                                   <% end %>
-                                    <li> <%= link_to("收藏夹", account_collections_path) %> </li>
-                                    <li> <%= link_to("投递箱", account_resumes_path) %> </li>
+                                    <li> <%= link_to("我的收藏", account_collections_path) %> </li>
+                                    <li> <%= link_to("投递历史", account_resumes_path) %> </li>
+                                    <li class="divider" role="separator"></li>
                                     <li> <%= link_to("退出", destroy_user_session_path, method: :delete) %> </li>
                                 </ul>
                               </li>

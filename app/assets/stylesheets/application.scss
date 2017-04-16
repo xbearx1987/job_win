@@ -180,16 +180,20 @@ single-work span i.fa,
     .logo_img {
         display: inline-block;
         margin-right: 10px;
+        margin-left: 30px;
         width: 35px;
         height: 35px;
         margin-top: -6px
     }
+
+    .default-logo {
+        letter-spacing: 1px;
+        line-height: 40px;
+        margin-right: 15px;
+    }
 }
 
-.default-logo {
-    letter-spacing: 1px;
-    line-height: 40px;
-}
+
 
 .default-menu.navbar-default .navbar-toggle {
     border-radius: 0;
@@ -220,54 +224,55 @@ single-work span i.fa,
 .default-menu.navbar-default .navbar-nav > li > a:active,
 .default-menu.navbar-default .navbar-nav > li > a:focus,
 .default-menu.navbar-default .navbar-nav > li > a:hover{
-    color: #4A6BB5;
+    color: #35CCC6;
 }
 
 .default-menu.navbar-default .navbar-nav > .active > a,
 .default-menu.navbar-default .navbar-nav > .active > a:focus,
 .default-menu.navbar-default .navbar-nav > .active > a:hover{
     background-color: transparent;
-    color: #4A6BB5;
+    color: #35CCC6;
 }
 
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:focus,
 .navbar-default .navbar-nav > .open > a:hover {
     background-color: transparent;
-    color: #4A6BB5;
+    color: #35CCC6;
 }
 
 .default-menu .dropdown-menu{
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    background-color: #333;
-    min-width: 200px;
-    margin-top: 2px !important;
-    padding: 0;
+    background-color: #fff;
+    min-width: 150px;
+    box-shadow: 0 5px 10px #aaa;
+}
+
+/* 下拉选单三角箭头 */
+.default-menu .dropdown-menu:before {
+    content: "";
+    border-bottom: 10px solid #fff;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    position: absolute;
+    top: -10px;
+    right: 16px;
+    z-index: 10;
 }
 
 .default-menu .dropdown-menu > li > a {
-    color: #999;
-    font-weight: 400;
-    line-height: 1.42857;
-    padding: 15px 20px;
-    font-size: 11px;
-    text-transform: uppercase;
-    left: 0.3px;
-    word-spacing: 3px;
-    font-weight: 600
+    color: #000;
+    padding: 8px 17px;
+    font-size: 14px;
+    letter-spacing: 1px;
 }
 
 .dropdown-menu > li > a:hover {
-    background-color: #333333;
-    color: #fff;
-    text-decoration: none;
+    background-color: #35CCC6;
+    color: #000;
 }
 
 .btn.btn-default.navbar-btn{
-    background-color: transparent;
-    color: #999;
+    color: #000;
     margin-top: 16px;
     border-radius: 4px;
     padding: 8px 25px;
@@ -324,7 +329,7 @@ single-work span i.fa,
 }
 
 .default-menu.menu-4 .navbar-nav > li > a{
-    color: #999;
+    color: #fff;
 }
 
 .default-menu.menu-4 .navbar-nav > li > a:before,
