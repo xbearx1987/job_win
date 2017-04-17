@@ -34,4 +34,10 @@
     </div>
   </div>
   <% end %>
+  <div class="col-md-3 side-box"></div>
+</div>
+<div class="col-md-10 col-md-offset-1 job-bottom">
+  <div class="text-center">
+    <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+  </div>
 </div>

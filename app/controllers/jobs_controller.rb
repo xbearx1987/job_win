@@ -2,7 +2,7 @@ class JobsController < ApplicationController
   before_action :authenticate_user! , only: [:add, :remove]
 
   def index
-    @jobs = Job.where(:is_hidden => false).order("created_at DESC")
+    @jobs = Job.where(:is_hidden => false).order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
   end
 
   def show
