@@ -20,7 +20,7 @@ class JobsController < ApplicationController
       current_user.add_collection!(@job)
     end
 
-    redirect_to job_path(@job)
+    redirect_to :back
   end
 
   def remove
@@ -30,7 +30,7 @@ class JobsController < ApplicationController
       current_user.remove_collection!(@job)
     end
 
-    redirect_to job_path(@job)
+    redirect_to :back
   end
 
 end

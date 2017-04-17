@@ -1,28 +1,37 @@
-<div class="col-md-12 job-content">
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <td>#</td>
-        <td>职缺</td>
-        <td>类型</td>
-        <td>薪资</td>
-        <td>公司</td>
-        <td>地点</td>
-        <td>联系方式</td>
-      </tr>
-    </thead>
-    <tbody>
-      <% @jobs.each do |job| %>
-      <tr>
-        <td>#</td>
-        <td><%= link_to(job.name, job_path(job)) %></td>
-        <td><%= job.category %></td>
-        <td><%= job.wage_lower_bound %> K ~ <%= job.wage_upper_bound %> K</td>
-        <td><%= job.company %></td>
-        <td><%= job.location %></td>
-        <td><%= job.contact_mail %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="col-md-10 col-md-offset-1 job-content">
+  <% @jobs.each do |job| %>
+  <div class="col-md-9 job-box">
+    <div class="info">
+      <div class="info-top">
+        <h3><%= link_to(job.name, job_path(job))%></h3><span><%= job.created_at.strftime("%Y-%m-%d") %></span>
+      </div>
+      <div class="info-mid">
+        <%= job.wage_lower_bound %> k ~ <%= job.wage_upper_bound %> k
+      </div>
+      <div class="info-bot">
+        <span><%= job.category %></span>
+      </div>
+    </div>
+    <div class="company">
+      <div class="company-top">
+        <span><%= link_to(job.company, job_path(job))%></span>
+        <% if current_user && current_user.is_member_of?(job) %>
+          <%= link_to remove_job_path(job), method: :post do %>
+            <sapn class="fa fa-star"></sapn>
+          <% end %>
+        <% else %>
+          <%= link_to add_job_path(job), method: :post do %>
+            <sapn class="fa fa-star-o"></sapn>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="company-mid">
+        <sapn class="fa fa-envelope"></sapn><span><%= job.contact_mail %></span>
+      </div>
+      <div class="company-bot">
+        <sapn class="fa fa-map-marker"></sapn><span><%= job.location %></span>
+      </div>
+    </div>
+  </div>
+  <% end %>
 </div>
