@@ -681,6 +681,8 @@ single-work span i.fa,
 }
 
 /*===== our experts ====*/
+
+/* Feature与Category共用 */
 .our-experts{
     background-color: #F2F2F2;
 
@@ -689,65 +691,62 @@ single-work span i.fa,
     }
     a{
       text-decoration:none;
+      color: #002E2E;
+    }
+
+    img{
+      width: 550px;
     }
 }
 
 
-.category_1{
-  color: #0070DE !important;
-}
-.category_2{
-  color: #69CCF0 !important;
-}
-.category_3{
-  color: #00FF96 !important;
-}
-.category_4{
-  color: #FF7D0A !important;
-}
-.category_5{
-  color: #C79C6E !important;
-}
-.category_6{
-  color: #A330C9 !important;
-}
-.category_7{
-  color: #C41F3B !important;
-}
-.category_all{
-  color: #9482C9 !important;
-}
 
 
 .our-experts .expert-box{
     text-align: center;
-    background-color: #fff;
+    // background-color: #fff;
     // box-shadow: 0px 0px 10px 2px #aaa;
     border: 2px solid #ccc;
-    border-radius: 5px;
-    width: 225px;
-    height: 165px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    margin-top: 25px;
+    // margin-bottom: 35px;
+    margin-left: auto;
+    margin-right: auto;
 
-    span {
-        font-size: 50px;
-        margin-top: 35px;
+    img {
+        width: 50px;
+        margin-top: 25px;
+        // margin-bottom: 15px;
     }
-    h3{
-      font-weight: 700;
-      letter-spacing: 1px;
-      font-size: 18px;
-    }
-    p{
-      margin-top: -10px;
-      letter-spacing: 1px;
-    }
+
 }
 
-.our-experts .expert-box:hover{
+.our-experts .category-list{
+  text-align: center;
+
+  h3{
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 18px;
+  }
+  p{
+    // margin-top: -10px;
+    letter-spacing: 1px;
+    color: #666;
+  }
+}
+
+
+.our-experts .category-list:hover{
+  .expert-box{
     border: 2px solid #4A6BB5;
     opacity: 0.85;
+  }
+  h3{
+    color: #4A6BB5;
+  }
 }
 
 

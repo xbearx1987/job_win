@@ -78,104 +78,104 @@
         <!--======== Category =========-->
         <section id="genius" class="our-experts">
             <div class="container">
-              <div class="col-md-10 col-md-offset-1">
+              <div class="col-md-8 col-md-offset-2">
                 <div class="row">
                   <div class="row">
                       <div class="col-md-6 col-md-offset-3 text-center">
                           <h2 class="section-title">热门职位</h2>
-                          <div class="short-line"></div
+                          <div class="short-line"></div>
                       </div>
                   </div>
                     <div class="col-md-12">
                         <div class="row">
-                            <div class="col-sm-3">
+                            <div class="col-md-3 category-list">
                               <%= link_to jobs_path(:category => "01") , class: "category_1" do %>
                                 <div class="expert-box">
-                                    <span class="fa fa-laptop"></span>
-                                    <div>
-                                      <h3>技术</h3>
-                                      <p>Technology</p>
-                                    </div>
+                                    <%= image_tag("category_01.png") %>
+                                </div>
+                                <div>
+                                  <h3>技术</h3>
+                                  <p>Technology</p>
                                 </div>
                               <% end %>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-md-3 category-list">
                               <%= link_to jobs_path(:category => "02") , class: "category_2" do %>
                                 <div class="expert-box">
-                                    <span class="fa fa-tasks"></span>
-                                    <div>
-                                      <h3>产品</h3>
-                                      <p>Product</p>
-                                    </div>
+                                    <%= image_tag("category_02.png") %>
+                                </div>
+                                <div>
+                                  <h3>产品</h3>
+                                  <p>Product</p>
                                 </div>
                               <% end %>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-md-3 category-list">
                               <%= link_to jobs_path(:category => "03") , class: "category_3" do %>
                                 <div class="expert-box">
-                                    <span class="fa fa-photo"></span>
-                                    <div>
-                                      <h3>设计</h3>
-                                      <p>Design</p>
-                                    </div>
+                                    <%= image_tag("category_03.png") %>
+                                </div>
+                                <div>
+                                  <h3>设计</h3>
+                                  <p>Design</p>
                                 </div>
                               <% end %>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-md-3 category-list">
                               <%= link_to jobs_path(:category => "04") , class: "category_4" do %>
                                 <div class="expert-box">
-                                    <span class="fa fa-line-chart"></span>
-                                    <div>
-                                      <h3>运营</h3>
-                                      <p>Operation</p>
-                                    </div>
+                                    <%= image_tag("category_04.png") %>
+                                </div>
+                                <div>
+                                  <h3>运营</h3>
+                                  <p>Operation</p>
                                 </div>
                               <% end %>
                             </div>
                         </div>
                         <br />
                         <div class="row">
-                          <div class="col-sm-3">
+                          <div class="col-md-3 category-list">
                             <%= link_to jobs_path(:category => "05") , class: "category_5" do %>
                               <div class="expert-box">
-                                  <span class="fa fa-pie-chart"></span>
-                                  <div>
-                                    <h3>市场</h3>
-                                    <p>Marketing</p>
-                                  </div>
+                                  <%= image_tag("category_05.png") %>
+                              </div>
+                              <div>
+                                <h3>市场</h3>
+                                <p>Marketing</p>
                               </div>
                             <% end %>
                           </div>
-                          <div class="col-sm-3">
+                          <div class="col-md-3 category-list">
                             <%= link_to jobs_path(:category => "06") , class: "category_6" do %>
                               <div class="expert-box">
-                                  <span class="fa fa-cny"></span>
-                                  <div>
-                                    <h3>销售</h3>
-                                    <p>Sales</p>
-                                  </div>
+                                  <%= image_tag("category_06.png") %>
+                              </div>
+                              <div>
+                                <h3>销售</h3>
+                                <p>Sales</p>
                               </div>
                             <% end %>
                           </div>
-                          <div class="col-sm-3">
+                          <div class="col-md-3 category-list">
                             <%= link_to jobs_path(:category => "07") , class: "category_7" do %>
                               <div class="expert-box">
-                                  <span class="fa fa-paste"></span>
-                                  <div>
-                                    <h3>职能</h3>
-                                    <p>Office</p>
-                                  </div>
+                                  <%= image_tag("category_07.png") %>
+                              </div>
+                              <div>
+                                <h3>职能</h3>
+                                <p>Office</p>
                               </div>
                             <% end %>
                           </div>
-                          <div class="col-sm-3">
+                          <div class="col-md-3 category-list">
                             <%= link_to jobs_path(:category => "all") , class: "category_all" do %>
                               <div class="expert-box">
-                                  <span class="fa fa-address-book-o"></span>
-                                  <div>
-                                    <h3>所有职位</h3>
-                                    <p>All Jobs</p>
-                                  </div>
+                                  <%= image_tag("category_08.png") %>
+                              </div>
+                              <div>
+                                <h3>所有职位</h3>
+                                <p>All Jobs</p>
                               </div>
                             <% end %>
                           </div>
@@ -203,17 +203,17 @@
                             <div class="carousel-inner" role="listbox">
                                 <div class="item active">
                                     <p>职赢网是我用过最方便的招聘网站，能快速筛选到理想中的工作，市面上的顶尖公司都在里面。现在我已经加入梦寐以求的团队，强烈推荐各位使用。</p>
-                                    <%= image_tag("user_01.png") %>
-                                    <strong>Hector , 介面设计师</strong>
+                                    <%= image_tag("user_1.png") %>
+                                    <strong>Edward , 介面设计师</strong>
                                 </div>
                                 <div class="item">
                                     <p>Facebook、Airbnb、Google，全球最顶尖公司的职缺，这里都有！而且更新非常快，每天都有新职缺，可以说是市面上最厉害的招聘网站！</p>
-                                    <%= image_tag("user_02.png") %>
+                                    <%= image_tag("user_3.png") %>
                                     <strong>Kelly , 数据工程师 </strong>
                                 </div>
                                 <div class="item">
                                     <p>庞大的人才数据库，让我在搭建新团队时能快速找到一流高手，简易又好上手的后台让我省去许多麻烦，可以专注于挖掘人才。</p>
-                                    <%= image_tag("user_03.png") %>
+                                    <%= image_tag("user_2.png") %>
                                     <strong>Rex , 产品总监 </strong>
                                 </div>
                             </div>

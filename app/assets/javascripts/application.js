@@ -23,7 +23,7 @@ function goTop(min_height) {
                 scrollTop: 0
             }, 700);
         });
-    min_height=min_height?min_height:3000;
+    min_height=min_height?min_height:2500;
     $(window).scroll(function() {
         var s = $(window).scrollTop();
         if (s > min_height) {
