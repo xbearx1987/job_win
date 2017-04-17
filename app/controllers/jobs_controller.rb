@@ -3,6 +3,7 @@ class JobsController < ApplicationController
 
   def index
     @jobs = Job.where(:is_hidden => false).order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+    @suggests = Job.where(:is_hidden => false).limit(5).order("RANDOM()")
   end
 
   def show

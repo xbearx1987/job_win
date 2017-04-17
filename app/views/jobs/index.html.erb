@@ -1,4 +1,5 @@
 <div class="col-md-10 col-md-offset-1 job-content">
+  <div class="main-box">
   <% @jobs.each do |job| %>
   <div class="col-md-9 job-box">
     <div class="info">
@@ -34,7 +35,27 @@
     </div>
   </div>
   <% end %>
-  <div class="col-md-3 side-box"></div>
+  </div>
+  <div class="col-md-3 side-box">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="suggest-title">
+        职位推荐
+      </div>
+      <% @suggests.each do |job| %>
+      <div class="suggest-content">
+        <div>
+          <h3>
+            <%= link_to job_path(job) do %>
+              <%= job.name %> [<%= job.location %>]
+            <% end %>
+          </h3>
+        </div>
+        <div><p><%= job.wage_lower_bound %> k ~ <%= job.wage_upper_bound %> k</p></div>
+        <div><span><%= job.company %></span></div>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 <div class="col-md-10 col-md-offset-1 job-bottom">
   <div class="text-center">
