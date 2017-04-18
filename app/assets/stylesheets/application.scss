@@ -305,13 +305,59 @@ section{
 
   /*===== End Job#Show ====*/
 
+  /*===== Start Job#Admin ====*/
+  .admin-job-box{
+    margin-top: 50px;
+    min-height: 425px;
+
+    table{
+      box-shadow: 0 0 3px #999;
+    }
+
+    thead{
+      background-color: #eee;
+      font-size: 16px;
+    }
+
+    .job-list{
+      margin-top: 15px;
+    }
+
+    .wage{
+      color: #FF7D0A;
+      font-weight: 600;
+    }
+
+    .resume{
+      background: #333;
+      width: 25px;
+    }
+
+    .action-box{
+      margin-top: -2.5px;
+      margin-bottom: -2.5px;
+    }
+
+    .show-btn{
+      background-color: #B6C9F2;
+      border: 1px solid #aaa;
+    }
+  }
+
+  .action-btn{
+    width: 100px;
+    height: 35px;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+  /*===== End Job#admin ====*/
 
 /*===== end Job ====*/
 
 .admin-content{
   min-height: 425px;
   margin-top: 85px;
-  margin-bottom: 100px;
+  // margin-bottom: 100px;
 }
 
 .p-l-0{
@@ -455,13 +501,26 @@ single-work span i.fa,
     }
 }
 
+  /* 管理后台左侧侧边栏 */
+.nav-sidebar{
+  margin-top: 50px;
 
-.nav-pills{
-
-}
-
-.nav-stacked{
-  
+  span{
+    margin-left: 2.5px;
+  }
+  li{
+    max-width: 225px;
+    padding: 12.5px 15px 12.5px 15px;
+    background-color: #1A6561;
+    border: 1px solid #444;
+  }
+  a{
+    color: #fff;
+    text-decoration: none;
+  }
+  a:hover{
+    color: #35CCC6;
+  }
 }
 
 .default-menu.navbar-default .navbar-toggle {

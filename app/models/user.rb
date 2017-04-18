@@ -6,8 +6,8 @@ class User < ApplicationRecord
 
   has_many :jobs
   has_many :resumes
-  has_many :collection
-  has_many :collected_jobs, :through => :collection, :source => :job
+  has_many :collections
+  has_many :collected_jobs, :through => :collections, :source => :job
 
   def admin?
     is_admin

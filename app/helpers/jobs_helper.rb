@@ -26,4 +26,10 @@ module JobsHelper
       "fa fa-address-book-o"
     end
   end
+
+  def render_job_wage(job)
+    "#{job.wage_lower_bound} k ~ #{job.wage_upper_bound} k"
+  end
+
+
 end

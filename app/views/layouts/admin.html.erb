@@ -14,9 +14,11 @@
             <%= render "common/navbar" %>
             <%= render "common/flashes" %>
             <div class="row">
-              <div class="col-md-2">
-                <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
-                   <li class="active"><%= link_to("Jobs", admin_jobs_path ) %> </li>
+              <div class="col-md-2 nav-sidebar">
+                <ul class="list-unstyled">
+                   <li><%= link_to admin_jobs_path do %> <sapn class="fa fa-vcard-o"></sapn> <span>职位管理</span><% end %></li>
+                   <li><%= link_to admin_jobs_path do %> <sapn class="fa fa-file-text-o"></sapn> <span>页面管理</span><% end %></li>
+                   <li><%= link_to admin_jobs_path do %> <sapn class="fa fa-user-circle-o"></sapn> <span>帐号设置</span><% end %></li>
                 </ul>
               </div>
               <div class="col-md-10">
