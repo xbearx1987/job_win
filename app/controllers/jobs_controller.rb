@@ -9,6 +9,9 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
 
+    @category = @job.category
+    @sames = Job.where(:is_hidden => false, :category => @job.category).where.not(:id => @job.id ).limit(5).order("RANDOM()")
+
     if @job.is_hidden
       redirect_to root_path, alert: "此职缺暂未开放。"
     end

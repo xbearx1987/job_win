@@ -4,7 +4,7 @@
   <div class="col-md-9 job-box">
     <div class="info">
       <div class="info-top">
-        <h3><%= link_to(job.name, job_path(job))%></h3><span><%= job.created_at.strftime("%Y-%m-%d") %></span>
+        <h3><%= link_to(job.name, job_path(job), target: "_blank" )%></h3><span><%= job.created_at.strftime("%Y-%m-%d") %></span>
       </div>
       <div class="info-mid">
         <%= job.wage_lower_bound %> k ~ <%= job.wage_upper_bound %> k
@@ -45,7 +45,7 @@
       <div class="suggest-content">
         <div>
           <h3>
-            <%= link_to job_path(job) do %>
+            <%= link_to job_path(job), target: "_blank" do %>
               <%= job.name %> [<%= job.location %>]
             <% end %>
           </h3>
