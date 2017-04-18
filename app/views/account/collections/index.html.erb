@@ -1,35 +1,71 @@
-<div class="col-md-12 job-content">
 <% if @collections.length > 0 %>
-  <h2 class="text-center">我收藏的职位</h2>
-  <div class="col-md-12">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <td>#</td>
-          <td>职缺</td>
-          <td>类型</td>
-          <td>薪资</td>
-          <td>公司</td>
-          <td>地点</td>
-          <td>联系方式</td>
-        </tr>
-      </thead>
-      <tbody>
-        <% @collections.each do |collection| %>
-        <tr>
-          <td>#</td>
-          <td><%= link_to(collection.job.name, job_path(collection.job)) %></td>
-          <td><%= collection.job.category %></td>
-          <td><%= collection.job.wage_lower_bound %> ~ <%= collection.job.wage_upper_bound %></td>
-          <td><%= collection.job.company %></td>
-          <td><%= collection.job.location %></td>
-          <td><%= collection.job.contact_mail %></td>
-        </tr>
+<div class="col-md-10 col-md-offset-1 page-title">
+  <h1 style="color#000"># 我收藏的职位</h1>
+</div>
+<div class="col-md-10 col-md-offset-1 job-content">
+  <div class="main-box">
+  <% @collections.each do |collection| %>
+  <div class="col-md-9 job-box">
+    <div class="info">
+      <div class="info-top">
+        <h3><%= link_to(collection.job.name, job_path(collection.job))%></h3><span><%= collection.job.created_at.strftime("%Y-%m-%d") %></span>
+      </div>
+      <div class="info-mid">
+        <%= collection.job.wage_lower_bound %> k ~ <%= collection.job.wage_upper_bound %> k
+      </div>
+      <div class="info-bot">
+        <span><%= collection.job.category %></span>
+      </div>
+    </div>
+    <div class="company">
+      <div class="company-top">
+        <span><%= link_to(collection.job.company, job_path(collection.job))%></span>
+        <% if current_user && current_user.is_member_of?(collection.job) %>
+          <%= link_to remove_job_path(collection.job), method: :post do %>
+            <sapn class="fa fa-star"></sapn>
+          <% end %>
+        <% else %>
+          <%= link_to add_job_path(collection.job), method: :post do %>
+            <sapn class="fa fa-star-o"></sapn>
+          <% end %>
         <% end %>
-      </tbody>
-    </table>
+      </div>
+      <div class="company-mid">
+        <sapn class="fa fa-envelope"></sapn><span><%= collection.job.contact_mail %></span>
+      </div>
+      <div class="company-bot">
+        <sapn class="fa fa-map-marker"></sapn><span><%= collection.job.location %></span>
+      </div>
+    </div>
   </div>
+  <% end %>
+  </div>
+  <div class="col-md-3 side-box">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="suggest-title">
+        职位推荐
+      </div>
+      <% @suggests.each do |job| %>
+      <div class="suggest-content">
+        <div>
+          <h3>
+            <%= link_to job_path(job) do %>
+              <%= job.name %> [<%= job.location %>]
+            <% end %>
+          </h3>
+        </div>
+        <div><p><%= job.wage_lower_bound %> k ~ <%= job.wage_upper_bound %> k</p></div>
+        <div><span><%= job.company %></span></div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="col-md-10 col-md-offset-1 job-bottom">
+  <div class="text-center">
+    <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+  </div>
+</div>
 <% else %>
   <p class="text-center">你还没收藏任何职位哦！ <%= link_to("立即查看职缺", jobs_path, class: "btn btn-lg btn-success") %></p>
 <% end %>
-</div>

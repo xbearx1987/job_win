@@ -50,10 +50,14 @@ section{
     padding-bottom: 50px;
 }
 
+ .page-title{
+  margin-top: 75px;
+  margin-bottom: -100px;
+ }
 
 /*===== Job ====*/
 .job-content{
-  min-height: 425px;
+  min-height: 725px;
   margin-top: 100px;
 
   a{
@@ -162,7 +166,7 @@ section{
   background-color: #fff;
   margin-left: -40px;
   padding: 2px 2px 12px 12px;
-  border: 0.5px solid #eee;
+  border: 0.5px dashed #eee;
 
   div{
     margin-top: -5px;
