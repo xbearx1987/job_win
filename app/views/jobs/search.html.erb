@@ -1,0 +1,73 @@
+<% if @jobs.blank?%>
+<div class="col-md-10 col-md-offset-1">
+  <div class="search-error">
+    <h2>没有符合搜索条件的资料哦！</h2><br />
+    <p><%= link_to("立即查看工作", jobs_path, class: "btn btn-lg btn-success") %></p>
+  </div>
+</div>
+<% else %>
+<div class="col-md-10 col-md-offset-1 job-content">
+  <div class="main-box">
+  <% @jobs.each do |job| %>
+  <div class="col-md-9 job-box">
+    <div class="info">
+      <div class="info-top">
+        <h3><%= link_to(job.name, job_path(job), target: "_blank" )%></h3><span><%= job.created_at.strftime("%Y-%m-%d") %></span>
+      </div>
+      <div class="info-mid">
+        <%= job.wage_lower_bound %> k ~ <%= job.wage_upper_bound %> k
+      </div>
+      <div class="info-bot">
+        <span><%= job.category %></span>
+      </div>
+    </div>
+    <div class="company">
+      <div class="company-top">
+        <span><%= link_to(job.company, job_path(job))%></span>
+        <% if current_user && current_user.is_member_of?(job) %>
+          <%= link_to remove_job_path(job), method: :post do %>
+            <sapn class="fa fa-star"></sapn>
+          <% end %>
+        <% else %>
+          <%= link_to add_job_path(job), method: :post do %>
+            <sapn class="fa fa-star-o"></sapn>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="company-mid">
+        <sapn class="fa fa-envelope"></sapn><span><%= job.contact_mail %></span>
+      </div>
+      <div class="company-bot">
+        <sapn class="fa fa-map-marker"></sapn><span><%= job.location %></span>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  </div>
+  <div class="col-md-3 side-box">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="suggest-title">
+        <sapn class="fa fa-tags"></sapn> <span>职位推荐</span>
+      </div>
+      <% @suggests.each do |job| %>
+      <div class="suggest-content">
+        <div>
+          <h3>
+            <%= link_to job_path(job), target: "_blank" do %>
+              <%= job.name %> [<%= job.location %>]
+            <% end %>
+          </h3>
+        </div>
+        <div><p><%= job.wage_lower_bound %> k ~ <%= job.wage_upper_bound %> k</p></div>
+        <div><span><%= job.company %></span></div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="col-md-10 col-md-offset-1 job-bottom">
+  <div class="text-center">
+    <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+  </div>
+</div>
+<% end %>

@@ -14,9 +14,8 @@
                           <%= image_tag("logo.png", :class => "logo_img") %> 职赢网
                         <% end %>
                     </div>
-
                     <div class="collapse navbar-collapse top-nav" id="menu-4">
-                        <ul class="nav navbar-nav">
+                        <ul class="nav navbar-nav navbar-left">
                           <li><%= link_to("首页", root_path, class: "scroll") %></li>
                           <li><%= link_to("工作", jobs_path, class: "scroll") %></li>
                         </ul>
@@ -44,6 +43,16 @@
                               </li>
                             <% end %>
                         </ul>
+                        <%= form_tag search_jobs_path, :method => :get, class: "navbar-form navbar-right" do %>
+                          <div class="input-group search-box">
+                            <input type="text" class="form-control" name="keyword" placeholder="搜索职位、公司或地点" value="<%= params[:keyword] %>">
+                            <div class="input-group-btn">
+                              <button class="btn btn-default" type="submit">
+                                <i class="fa fa-search"></i>
+                              </button>
+                            </div>
+                          </div>
+                        <% end %>
                     </div>
                 </div>
             </div>

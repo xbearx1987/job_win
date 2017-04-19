@@ -1506,3 +1506,19 @@ single-work span i.fa,
       color: #fff;
     }
 }
+
+/* 搜寻栏 */
+.search-box{
+  margin-top: 10px;
+
+  input{
+    width: 250px !important;
+  }
+}
+
+.search-error{
+  text-align: center;
+  min-height: 325px;
+  margin-top: 250px;
+  margin-bottom: 50px;
+}
