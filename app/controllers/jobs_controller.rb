@@ -82,7 +82,7 @@ class JobsController < ApplicationController
     if @query_string.present?
       # 显示符合关键字的公开职位 #
       search_result = Job.ransack(@search_criteria).result(:distinct => true)
-      @jobs = search_result.published.paginate(:page => params[:page], :per_page => 15 )
+      @jobs = search_result.published.paginate(:page => params[:page], :per_page => 10 )
       # 随机推荐五个职位 #
       @suggests = Job.published.random5
     end

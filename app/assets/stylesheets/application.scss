@@ -51,8 +51,10 @@ section{
 }
 
  .page-title{
-  margin-top: 75px;
-  margin-bottom: -100px;
+    margin-top: 75px;
+    margin-bottom: -100px;
+    color: #333;
+    letter-spacing: 1px;
  }
 
 /*===== Job ====*/
@@ -1101,13 +1103,6 @@ single-work span i.fa,
     display: block;
 }
 
-/*
-.single-work span i.fa{
-    color: #fff;
-    font-size: 15px;
-    position: absolute;
-    text-align: center;
-}
 
 /*===== extra feature ====*/
 .extra-feature{
@@ -1183,9 +1178,7 @@ single-work span i.fa,
       width: 550px;
     }
 }
-
-
-
+/* Feature与Category共用 */
 
 .our-experts .expert-box{
     text-align: center;
@@ -1225,7 +1218,6 @@ single-work span i.fa,
     color: #4A6BB5;
   }
 }
-
 
 .our-brand{
     background-color: #F2F2F2;
@@ -1317,7 +1309,7 @@ single-work span i.fa,
 
 }
 
-/* border */
+/* --border-- */
 .border{
     position: relative;
     margin-bottom: 60px;
@@ -1358,8 +1350,9 @@ single-work span i.fa,
     top: 3px;
     width: 40px;
 }
+/* --border-- */
 
-
+/* --contact-- */
 .contact .form-group .btn.btn-default {
     background-color: transparent;
     border-color: #ccc;
@@ -1388,20 +1381,12 @@ single-work span i.fa,
     min-height: 130px !important;
     width: 100% !important;
 }
+/* --contact-- */
 
-.social-links{
-    margin-bottom: 45px;
-}
-.social-links .fa{
-    background: #4A6BB5;
-    color: #fff;
-    width: 35px;
-    height: 35px;
-    padding-top: 11px;
-    text-align: center;
-    border-radius: 50px;
-    cursor: pointer;
-}
+/*===== contact ====*/
+
+
+
 
 /*===== footer ====*/
 .footer{
@@ -1490,6 +1475,11 @@ single-work span i.fa,
 
 }
 
+/*===== footer ====*/
+
+
+/*===== Support ====*/
+
 .goTop {
     height: 35px;
     width: 35px;
@@ -1518,6 +1508,10 @@ single-work span i.fa,
       color: #fff;
     }
 }
+
+/*===== Support ====*/
+
+
 
 /* 搜寻栏 */
 .search-box{
