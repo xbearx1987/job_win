@@ -3,8 +3,6 @@ class ResumesController < ApplicationController
   before_action :find_job_and_check_permission , only: [:edit, :update, :destroy]
   before_action :require_is_admin
 
-  layout "admin"
-
   def new
     @job = Job.find(params[:job_id])
     @resume = Resume.new

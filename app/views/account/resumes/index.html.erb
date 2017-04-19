@@ -14,7 +14,7 @@
           <%= resume.job.wage_lower_bound %> k ~ <%= resume.job.wage_upper_bound %> k
         </div>
         <div class="info-bot">
-          <span><%= resume.job.category %></span>
+          <span class="category"><span class="<%= render_job_category(resume.job) %>"> <%= resume.job.category %></span>
         </div>
       </div>
       <div class="company">
@@ -60,6 +60,6 @@
 <% else %>
   <div class="col-md-12 job-limit-box text-center">
     <h2>你还没投递过任何职位哦！</h2><br />
-    <p><%= link_to("立即查看职缺", jobs_path, class: "btn btn-lg btn-success") %></p>
+    <p><%= link_to("立即查看工作", jobs_path, class: "btn btn-lg btn-success") %></p>
   </div>
 <% end %>

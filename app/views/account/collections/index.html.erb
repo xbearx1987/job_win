@@ -14,7 +14,7 @@
         <%= collection.job.wage_lower_bound %> k ~ <%= collection.job.wage_upper_bound %> k
       </div>
       <div class="info-bot">
-        <span><%= collection.job.category %></span>
+        <span class="category"><span class="<%= render_job_category(collection.job) %>"> <%= collection.job.category %></span>
       </div>
     </div>
     <div class="company">

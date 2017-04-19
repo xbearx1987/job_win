@@ -14,7 +14,7 @@ module JobsHelper
       "fa fa-tasks"
     elsif job.category == '设计'
       "fa fa-photo"
-    elsif job.category == '营销'
+    elsif job.category == '运营'
       "fa fa-line-chart"
     elsif job.category == '市场'
       "fa fa-pie-chart"

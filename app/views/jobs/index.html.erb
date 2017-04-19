@@ -61,7 +61,7 @@
           <%= link_to("设计", jobs_path(:category => "设计")) %>
         </li>
         <li>
-          <%= link_to("营销", jobs_path(:category => "营销")) %>
+          <%= link_to("运营", jobs_path(:category => "运营")) %>
         </li>
         <li>
           <%= link_to("市场", jobs_path(:category => "市场")) %>
@@ -121,7 +121,7 @@
         <%= job.wage_lower_bound %> k ~ <%= job.wage_upper_bound %> k
       </div>
       <div class="info-bot">
-        <span><%= job.category %></span>
+        <span class="category"><span class="<%= render_job_category(job) %>"> <%= job.category %></span>
       </div>
     </div>
     <div class="company">
