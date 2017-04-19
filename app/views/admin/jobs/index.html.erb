@@ -3,6 +3,7 @@
     <%= link_to("新增职位", new_admin_job_path, class: "btn btn-primary pull-right action-btn") %>
   </div>
   <div class="admin-job-box">
+<% if @jobs.length > 0 %>
   <table class="table table-hover">
     <thead>
       <tr>
@@ -49,6 +50,9 @@
       <% end %>
     </tbody>
   </table>
+<% else %>
+  <h3 class="no-data">目前尚未发布任何职位哦，赶快去新增吧。</h3>
+<% end %>
   </div>
   <div class="col-md-12 job-bottom">
     <div class="text-center">
