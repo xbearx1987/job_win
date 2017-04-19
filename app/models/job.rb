@@ -1,4 +1,5 @@
 class Job < ApplicationRecord
+  # 新增/修改栏位限制与提示 #
   validates :name, presence: { message: "请填写职称" }
   validates :content, presence: { message: "请填写职位描述" }
   validates :company, presence: { message: "请填写公司名称" }
@@ -16,6 +17,7 @@ class Job < ApplicationRecord
   has_many :collections, dependent: :destroy
   has_many :members, through: :collections, source: :user
 
+  # Scope #
   scope :recent, -> { order('created_at DESC') }
   scope :published, -> { where(is_hidden: false) }
   scope :random5, -> { limit(5).order("RANDOM()") }

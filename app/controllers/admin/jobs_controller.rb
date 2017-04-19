@@ -6,7 +6,7 @@ class Admin::JobsController < ApplicationController
   layout "admin"
 
   def index
-    @jobs = Job.where(:user => current_user).order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+    @jobs = Job.where(:user => current_user).recent.paginate(:page => params[:page], :per_page => 10)
   end
 
   def show

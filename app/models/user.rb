@@ -19,10 +19,12 @@ class User < ApplicationRecord
     collected_jobs.include?(job)
   end
 
+  # 加入收藏 #
   def add_collection!(job)
     collected_jobs << job
   end
 
+  # 移除收藏 #
   def remove_collection!(job)
     collected_jobs.delete(job)
   end

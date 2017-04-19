@@ -1,3 +1,4 @@
+<!--=== 搜索结果，没有符合条件的数据 ===-->
 <% if @jobs.blank?%>
 <div class="col-md-10 col-md-offset-1">
   <div class="search-error">
@@ -6,10 +7,12 @@
   </div>
 </div>
 <% else %>
+<!--=== 搜索结果，有符合条件的数据 ===-->
 <div class="col-md-10 col-md-offset-1 page-title">
   <h1><sapn class="fa fa-search"></sapn> 搜索结果</h1>
 </div>
 <div class="col-md-10 col-md-offset-1 job-content">
+  <!--=== 左侧区块 ===-->
   <div class="main-box">
   <% @jobs.each do |job| %>
   <div class="col-md-9 job-box">
@@ -24,6 +27,7 @@
         <span><%= job.category %></span>
       </div>
     </div>
+    <!--=== 右侧区块 ===-->
     <div class="company">
       <div class="company-top">
         <span><%= link_to(job.company, job_path(job))%></span>
@@ -47,6 +51,7 @@
   </div>
   <% end %>
   </div>
+<!--=== 随机推荐五个职位 ===-->
   <div class="col-md-3 side-box">
     <div class="col-md-10 col-md-offset-1">
       <div class="suggest-title">
@@ -68,6 +73,7 @@
     </div>
   </div>
 </div>
+<!--=== 换页区块 ===-->
 <div class="col-md-10 col-md-offset-1 job-bottom">
   <div class="text-center">
     <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>

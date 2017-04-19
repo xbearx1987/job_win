@@ -1,5 +1,6 @@
 <div class="col-md-10 col-md-offset-1 job-content">
   <div class="btn-group select-job-box">
+    <!--=== 工作地点下拉选单 ===-->
     <div class="dropdown btn-group clearfix">
       <% if params[:location].present? %>
       <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -40,6 +41,8 @@
         </li>
       </ul>
     </div>
+
+    <!--=== 职位类型下拉选单 ===-->
     <div class="dropdown btn-group clearfix">
       <% if params[:category].present? %>
       <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -80,6 +83,8 @@
         </li>
       </ul>
     </div>
+
+    <!--=== 月薪下拉选单 ===-->
     <div class="dropdown btn-group clearfix">
       <% if params[:wage].present? %>
       <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -109,10 +114,13 @@
       </ul>
     </div>
   </div>
+
+  <!--=== 工作列表 ===-->
   <div class="main-box">
 <% if @jobs.length > 0 %>
   <% @jobs.each do |job| %>
-  <div class="col-md-9 job-box row">
+  <div class="col-md-9 col-xs-9 job-box row">
+    <!--=== 职位信息 ===-->
     <div class="info">
       <div class="info-top">
         <h3><%= link_to(job.name, job_path(job), target: "_blank" )%></h3><span><%= job.created_at.strftime("%Y-%m-%d") %></span>
@@ -124,6 +132,8 @@
         <span class="category"><span class="<%= render_job_category(job) %>"> <%= job.category %></span>
       </div>
     </div>
+
+    <!--=== 公司信息 ===-->
     <div class="company">
       <div class="company-top">
         <span><%= link_to(job.company, job_path(job))%></span>
@@ -147,12 +157,14 @@
   </div>
   <% end %>
 <% else %>
-  <div class="col-md-9 no-job-data">
+  <!--=== 没有职位资料 ===-->
+  <div class="col-md-9 col-xs-3 no-job-data">
     <h2>此分类暂时没有招聘职位哦，请尝试其他选项。</h2>
   </div>
 <% end %>
   </div>
 
+  <!--=== 随机推荐五个职位 ===-->
   <div class="col-md-3 side-box">
     <div class="col-md-10 col-md-offset-1">
       <div class="suggest-title">
@@ -174,6 +186,8 @@
     </div>
   </div>
 </div>
+
+<!--=== 分页区块 ===-->
 <div class="col-md-10 col-md-offset-1 job-bottom">
   <div class="text-center">
     <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>

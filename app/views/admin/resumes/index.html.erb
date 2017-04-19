@@ -1,4 +1,5 @@
 <div class="col-md-12 job-form">
+  <% if @resumes.length > 0 %>
   <div class="col-md-10 col-md-offset-1 resume-form">
     <h2> <%= @job.name %> - 简历列表 </h2>
     <hr>
@@ -9,4 +10,7 @@
       <%= will_paginate @resumes, renderer: BootstrapPagination::Rails %>
     </div>
   </div>
+  <% else %>
+  <h2 class="no-job-data">此职缺还没有人投过简历哦。 <span class="fa fa-frown-o"></span></h2>
+  <% end %>
 </div>

@@ -1,4 +1,5 @@
 module JobsHelper
+  # 判断显示/隐藏icon #
   def render_job_status(job)
     if job.is_hidden
       "fa fa-lock"
@@ -7,6 +8,7 @@ module JobsHelper
     end
   end
 
+  # 判断职位类型icon #
   def render_job_category(job)
     if job.category == '技术'
       "fa fa-laptop"
@@ -27,10 +29,12 @@ module JobsHelper
     end
   end
 
+  # 薪水区间 #
   def render_job_wage(job)
     "#{job.wage_lower_bound} k ~ #{job.wage_upper_bound} k"
   end
 
+  # 判断是否投递过简历icon #
   def render_job_resumes(job)
     if job.resumes.count > 0
       "fa fa-envelope-open-o"

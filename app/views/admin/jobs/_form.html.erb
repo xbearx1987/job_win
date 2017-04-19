@@ -6,11 +6,13 @@
         <%= f.input :content, :label => false, placeholder: '请输入职位描述', input_html: { class: 'job-content-info' } %>
         <%= f.input :company, :label => false, placeholder: '请输入公司名称' %>
         <hr />
+        <!--=== 职位类型 ===-->
         <% if @job.category? %>
           <%= f.input :category, :label => "职位类型", :collection => ["技术", "产品", "设计", "运营", "市场", "销售", "职能", "其他"], :checked => @job.category, input_html: { class: 'category' } %>
         <% else %>
           <%= f.input :category, :label => "职位类型", :collection => ["技术", "产品", "设计", "运营", "市场", "销售", "职能", "其他"], input_html: { class: 'category' } %>
         <% end %>
+        <!--=== 工作地点 ===-->
         <% if @job.location? %>
           <%= f.input :location, :label => "工作地点", :collection => ["北京", "上海", "深圳", "广州", "杭州", "成都", "香港", "海外"], :checked => @job.location, input_html: { class: 'location' } %>
         <% else %>

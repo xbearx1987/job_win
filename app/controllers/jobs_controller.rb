@@ -1,11 +1,12 @@
 class JobsController < ApplicationController
-  before_action :authenticate_user! , only: [:add, :remove]
+  before_action :authenticate_user!, only: [:add, :remove]
   before_action :validate_search_key, only: [:search]
 
   def index
     # 随机推荐五个职位 #
     @suggests = Job.published.random5
 
+    # 目前只能单个条件筛选 #
     # 判断是否筛选城市 #
     if params[:location].present?
       @location = params[:location]
