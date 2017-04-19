@@ -8,7 +8,7 @@
     <div class="col-md-9 job-box">
       <div class="info">
         <div class="info-top">
-          <h3><%= link_to(resume.job.name, job_path(resume.job))%></h3><span><%= resume.job.created_at.strftime("%Y-%m-%d") %></span>
+          <h3><%= link_to(resume.job.name, job_path(resume.job))%></h3><span style="font-size:14px">投递时间：<%= resume.created_at.strftime("%Y-%m-%d %T") %></span>
         </div>
         <div class="info-mid">
           <%= resume.job.wage_lower_bound %> k ~ <%= resume.job.wage_upper_bound %> k
@@ -20,15 +20,6 @@
       <div class="company">
         <div class="company-top">
           <span><%= link_to(resume.job.company, job_path(resume.job))%></span>
-          <% if current_user && current_user.is_member_of?(resume.job) %>
-            <%= link_to remove_job_path(resume.job), method: :post do %>
-              <sapn class="fa fa-star"></sapn>
-            <% end %>
-          <% else %>
-            <%= link_to add_job_path(resume.job), method: :post do %>
-              <sapn class="fa fa-star-o"></sapn>
-            <% end %>
-          <% end %>
         </div>
         <div class="company-mid">
           <sapn class="fa fa-envelope"></sapn><span><%= resume.job.contact_mail %></span>
@@ -43,7 +34,7 @@
     <div class="col-md-3 side-box">
       <div class="col-md-10 col-md-offset-1">
         <div class="suggest-title">
-          职位推荐
+          <sapn class="fa fa-tags"></sapn> <span>职位推荐</span>
         </div>
         <% @suggests.each do |job| %>
         <div class="suggest-content">

@@ -78,6 +78,10 @@ section{
 .job-resume-box{
   min-height: 475px;
   margin-top: 25px;
+
+  h3{
+    text-align: center;
+  }
 }
 
 .side-box{
@@ -166,6 +170,7 @@ section{
   margin-bottom: 12.5px;
   text-align: center;
   font-size: 20px;
+  letter-spacing: 0.5px;
 }
 
 .suggest-content{
@@ -202,6 +207,11 @@ section{
 .job-info-box{
   color: #333;
   font-family: "Hiragino Sans GB","Microsoft Yahei",SimSun,Arial,"Helvetica Neue",Helvetica;
+
+  h3{
+    text-align: left;
+    color: #3D537F;
+  }
 
   p{
     font-size: 16px;
@@ -259,7 +269,11 @@ section{
 
   .mail-info{
     margin-bottom: 75px;
-    font-size: 16px;
+    font-size: 18px;
+
+    .email{
+      font-size: 16px;
+    }
   }
 }
 .same-box{
@@ -455,6 +469,41 @@ section{
     letter-spacing: 1px;
   }
   /*===== End Job#admin ====*/
+
+.resume-time{
+    float: right;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.resume-content{
+  height: 150px !important;
+}
+.resume-attachment{
+  font-size: 16px;
+}
+
+.form-actions-resume{
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 55px;
+
+  .button{
+    color: #fff;
+    background-color: #4A6BB5;
+    border-color: #4A6BB5;
+    border-radius: 5px;
+    height: 35px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    width: 35%;
+  }
+  .button:hover{
+      background-color: #4A99B5;
+      border-color: #4A99B5;
+      color: #fff;
+  }
+}
 
 /*===== end Job ====*/
 

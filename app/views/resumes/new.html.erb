@@ -1,13 +1,25 @@
-<div class="col-md-12 job-resume-box">
-  <div class="col-md-4 col-md-offset-4">
-    <%= simple_form_for [@job,@resume] do |f| %>
-      <div class="form-group">
-        <%= f.input :content, label: '简历描述', input_html: { class: "form-control"} %>
-        <%= f.input :attachment, label: '上传简历' %>
-      </div>
-      <div class="form-actions text-center">
-        <%= f.submit "Submit", disable_with: "Submiting...", class: "btn btn-primary"%>
-      </div>
-    <% end %>
+<div class="col-md-8 col-md-offset-2 job-resume-box">
+  <h3><sapn class="fa fa-envelope-o"></sapn> 投递简历</h3>
+  <hr>
+  <div class="job-info-box">
+    <h3><sapn class="fa fa-tag"></sapn> <%= @job.name %><span class="company">  / <%= @job.company %></span></h3>
+    <p>
+      <span class="wage"><%= @job.wage_lower_bound %> k ~ <%= @job.wage_upper_bound %> k </span> /
+      <span><sapn class="fa fa-map-marker"></sapn> <%= @job.location %></span> /
+      <span><span class="<%= render_job_category(@job) %>"> <%= @job.category %></span>
+     </p>
+    <p class="created"><%= @job.created_at.strftime("%Y-%m-%d") %> <span class="website">发布于职赢网</span></p>
+  </div>
+  <hr />
+  <div>
+  <%= simple_form_for [@job,@resume] do |f| %>
+    <div>
+      <%= f.input :content, :label => false, placeholder: '请输入简历描述', input_html: { class: 'resume-content' }  %>
+      <%= f.input :attachment, label: '上传简历', input_html: { class: 'resume-attachment' }  %>
+    </div>
+    <div class="form-actions-resume">
+      <%= f.submit "立即投递", disable_with: "Submiting...", class: "button"%>
+    </div>
+  <% end %>
   </div>
 </div>

@@ -1,7 +1,6 @@
 <div class="col-md-12 job-form">
-  <div class="col-md-12 resume-form">
-    <h2> <%= @job.name %> - 履历列表 </h2>
-
+  <div class="col-md-10 col-md-offset-1 resume-form">
+    <h2> <%= @job.name %> - 简历列表 </h2>
     <hr>
     <%= render :partial => "resume", :collection => @resumes, :as => :resume %>
   </div>
