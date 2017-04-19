@@ -15,4 +15,18 @@ class Job < ApplicationRecord
   has_many :resumes, dependent: :destroy
   has_many :collections, dependent: :destroy
   has_many :members, through: :collections, source: :user
+
+  scope :recent, -> { order('created_at DESC') }
+  scope :published, -> { where(is_hidden: false) }
+  scope :random5, -> { limit(5).order("RANDOM()") }
+
+
+  scope :wage1, -> { where('wage_lower_bound <= 5 or wage_upper_bound <= 5') }
+  scope :wage2, -> { where('wage_lower_bound between 5 and 10 or wage_upper_bound between 5 and 10') }
+  scope :wage3, -> { where('wage_lower_bound between 10 and 15 or wage_upper_bound between 10 and 15') }
+  scope :wage4, -> { where('wage_lower_bound between 15 and 25 or wage_upper_bound between 15 and 25') }
+  scope :wage5, -> { where('wage_lower_bound >= 25 or wage_upper_bound >= 25') }
+
+
+
 end

@@ -165,6 +165,18 @@ section{
   }
 }
 
+.select-job-box{
+
+  button{
+    width: 100px;
+  }
+
+  .btn-select{
+    background-color: #B6C9F2;
+    color: #fff;
+  }
+}
+
 .suggest-title{
   margin-top: 12.5px;
   margin-bottom: 12.5px;
@@ -1521,4 +1533,13 @@ single-work span i.fa,
   min-height: 325px;
   margin-top: 250px;
   margin-bottom: 50px;
+}
+
+
+
+.no-job-data{
+  margin-top: 120px;
+  color: #555;
+  font-family: "Hiragino Sans GB","Microsoft Yahei",SimSun,Arial,"Helvetica Neue",Helvetica;
+  text-align: center;
 }
