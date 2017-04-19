@@ -75,6 +75,11 @@ section{
   margin-top: 200px;
 }
 
+.job-resume-box{
+  min-height: 475px;
+  margin-top: 25px;
+}
+
 .side-box{
   display: inline;
   position: absolute;
@@ -323,6 +328,10 @@ section{
       margin-top: 15px;
     }
 
+    .title{
+      font-size: 15px;
+    }
+
     .wage{
       color: #FF7D0A;
       font-weight: 600;
@@ -342,7 +351,102 @@ section{
       background-color: #B6C9F2;
       border: 1px solid #aaa;
     }
+
+    .show-btn:hover{
+      opacity: 0.65;
+    }
   }
+
+  .job-form{
+    margin-top: 50px;
+    margin-bottom: 100px;
+    min-height: 550px;
+    h2{
+      color: #555;
+      text-align: center;
+    }
+  }
+
+  .resume-form{
+    min-height: 400px;
+  }
+
+  .job-setup{
+    background: #fafafa;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: 1px 3px 5px #333;
+    border: 5px solid #666;
+    border-radius: 25px;
+
+    opacity:0.95;
+    filter:alpha(opacity=95);
+    hr {
+      height:1px;
+      background-color:#ccc;
+    }
+  }
+
+  .job-form-content{
+    h2{
+      text-align: center;
+      color: #3D537F;
+      letter-spacing: 1px;
+    }
+
+    .job-content-info{
+      height: 225px;
+    }
+
+    .category{
+      width: 75%;
+    }
+
+    .location{
+      width: 75%;
+    }
+
+    .wage{
+      width: 50px;
+      border-radius: 5px;
+    }
+
+    .wage-form{
+      font-weight: 600;
+      font-size: 16px;
+      color: #666;
+    }
+
+    .hidden-box{
+      font-size: 16px;
+    }
+
+
+    .form-actions{
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 25px;
+
+      .button{
+        color: #fff;
+        background-color: #4A6BB5;
+        border-color: #4A6BB5;
+        font-size: 16px;
+        letter-spacing: 1px;
+        width: 100%;
+      }
+      .button:hover{
+          background-color: #4A99B5;
+          border-color: #4A99B5;
+          color: #fff;
+      }
+    }
+
+
+  }
+
 
   .action-btn{
     width: 100px;

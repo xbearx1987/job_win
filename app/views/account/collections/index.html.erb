@@ -1,6 +1,6 @@
 <% if @collections.length > 0 %>
 <div class="col-md-10 col-md-offset-1 page-title">
-  <h1 style="color#000"># 我收藏的职位</h1>
+  <h1 style="color#000"><sapn class="fa fa-gift"></sapn> 我收藏的职位</h1>
 </div>
 <div class="col-md-10 col-md-offset-1 job-content">
   <div class="main-box">
@@ -69,6 +69,6 @@
 <% else %>
 <div class="col-md-12 job-limit-box text-center">
   <h2>你还没收藏任何职位哦！</h2><br />
-  <p><%= link_to("立即查看职缺", jobs_path, class: "btn btn-lg btn-success") %></p>
+  <p><%= link_to("立即查看工作", jobs_path, class: "btn btn-lg btn-success") %></p>
 </div>
 <% end %>

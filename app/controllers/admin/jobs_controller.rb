@@ -22,7 +22,7 @@ class Admin::JobsController < ApplicationController
     @job.user = current_user
 
     if @job.save
-      redirect_to admin_jobs_path, notice: '职缺新增成功。'
+      redirect_to admin_jobs_path, notice: '职位新增成功。'
     else
       render :new
     end
@@ -35,7 +35,7 @@ class Admin::JobsController < ApplicationController
     @job.update(job_params)
 
     if @job.save
-      redirect_to admin_jobs_path, notice: '职缺修改成功。'
+      redirect_to admin_jobs_path, notice: '职位修改成功。'
     else
       render :edit
     end
@@ -43,7 +43,7 @@ class Admin::JobsController < ApplicationController
 
   def destroy
     @job.destroy
-      redirect_to admin_jobs_path, alert: '职缺删除成功。'
+      redirect_to admin_jobs_path, alert: '职位删除成功。'
   end
 
   def publish

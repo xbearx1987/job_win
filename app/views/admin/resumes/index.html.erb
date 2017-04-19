@@ -1,6 +1,13 @@
-<div class="col-md-12">
-  <h2> <%= @job.name %> - 履历列表 </h2>
+<div class="col-md-12 job-form">
+  <div class="col-md-12 resume-form">
+    <h2> <%= @job.name %> - 履历列表 </h2>
 
-  <hr>
-  <%= render :partial => "resume", :collection => @resumes, :as => :resume %>
+    <hr>
+    <%= render :partial => "resume", :collection => @resumes, :as => :resume %>
+  </div>
+  <div class="col-md-12 job-bottom">
+    <div class="text-center">
+      <%= will_paginate @resumes, renderer: BootstrapPagination::Rails %>
+    </div>
+  </div>
 </div>

@@ -1,9 +1,9 @@
 module JobsHelper
   def render_job_status(job)
     if job.is_hidden
-      "glyphicon glyphicon-lock"
+      "fa fa-lock"
     else
-      "glyphicon glyphicon-globe"
+      "fa fa-globe"
     end
   end
 
@@ -31,5 +31,12 @@ module JobsHelper
     "#{job.wage_lower_bound} k ~ #{job.wage_upper_bound} k"
   end
 
+  def render_job_resumes(job)
+    if job.resumes.count > 0
+      "fa fa-envelope-open-o"
+    else
+      "fa fa-envelope-o"
+    end
+  end
 
 end

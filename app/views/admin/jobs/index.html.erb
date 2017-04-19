@@ -1,6 +1,6 @@
 <div class="col-md-12">
   <div class="job">
-    <%= link_to("新增职缺", new_admin_job_path, class: "btn btn-primary pull-right action-btn") %>
+    <%= link_to("新增职位", new_admin_job_path, class: "btn btn-primary pull-right action-btn") %>
   </div>
   <div class="admin-job-box">
   <table class="table table-hover">
@@ -19,12 +19,12 @@
     <tbody>
       <% @jobs.each do |job| %>
       <tr class="job-list">
-        <td><span class="<%= render_job_status(job) %>"></span> <%= link_to(job.name, job_path(job)) %></td>
+        <td class="title"><span class="<%= render_job_status(job) %>"></span> <%= link_to(job.name, job_path(job)) %></td>
         <td><span class="<%= render_job_category(job) %>"> <%= job.category %></td>
         <td><%= job.company %></td>
         <td><sapn class="fa fa-map-marker"></sapn> <%= job.location %></td>
         <td class="wage"><%= render_job_wage(job) %></td>
-        <td> <%= link_to admin_job_resumes_path(job) do %><sapn class="fa fa-envelope-open-o"></sapn> <%= job.resumes.count %><% end %></td>
+        <td><%= link_to admin_job_resumes_path(job) do %><sapn class="<%= render_job_resumes(job) %>"></sapn> <%= job.resumes.count %><% end %></td>
         <td><%= job.created_at.strftime("%Y-%m-%d") %></td>
         <td>
           <div class="action-box">
