@@ -112,7 +112,7 @@
   <div class="main-box">
 <% if @jobs.length > 0 %>
   <% @jobs.each do |job| %>
-  <div class="col-md-9 job-box">
+  <div class="col-md-9 job-box row">
     <div class="info">
       <div class="info-top">
         <h3><%= link_to(job.name, job_path(job), target: "_blank" )%></h3><span><%= job.created_at.strftime("%Y-%m-%d") %></span>
@@ -152,7 +152,6 @@
   </div>
 <% end %>
   </div>
-
 
   <div class="col-md-3 side-box">
     <div class="col-md-10 col-md-offset-1">
