@@ -5,10 +5,11 @@
   <div class="col-md-10 col-md-offset-1 job-content">
     <div class="main-box">
     <% @resumes.each do |resume| %>
-    <div class="col-md-9 job-box">
-      <div class="info">
+    <div class="col-md-9 col-xs-12 job-box">
+      <!--=== 职位信息 ===-->
+      <div class="col-md-6 col-xs-12 info">
         <div class="info-top">
-          <h3><%= link_to(resume.job.name, job_path(resume.job))%></h3><span style="font-size:14px">投递时间：<%= resume.created_at.strftime("%Y-%m-%d %T") %></span>
+          <h3><%= link_to(resume.job.name, job_path(resume.job), target: "_blank" )%></h3><span><%= resume.job.created_at.strftime("%Y-%m-%d") %></span>
         </div>
         <div class="info-mid">
           <%= resume.job.wage_lower_bound %> k ~ <%= resume.job.wage_upper_bound %> k
@@ -17,9 +18,20 @@
           <span class="category"><span class="<%= render_job_category(resume.job) %>"> <%= resume.job.category %></span>
         </div>
       </div>
-      <div class="company">
+
+      <!--=== 公司信息 ===-->
+      <div class="col-md-6 col-xs-12 company">
         <div class="company-top">
           <span><%= link_to(resume.job.company, job_path(resume.job))%></span>
+          <% if current_user && current_user.is_member_of?(resume.job) %>
+            <%= link_to remove_job_path(resume.job), method: :post do %>
+              <sapn class="fa fa-star"></sapn>
+            <% end %>
+          <% else %>
+            <%= link_to add_job_path(resume.job), method: :post do %>
+              <sapn class="fa fa-star-o"></sapn>
+            <% end %>
+          <% end %>
         </div>
         <div class="company-mid">
           <sapn class="fa fa-envelope"></sapn><span><%= resume.job.contact_mail %></span>
@@ -29,26 +41,36 @@
         </div>
       </div>
     </div>
+
+
+
     <% end %>
     </div>
+    <!--=== 职位推荐：随机推荐五个职位 ===-->
     <div class="col-md-3 side-box">
-      <div class="col-md-10 col-md-offset-1">
-        <div class="suggest-title">
-          <sapn class="fa fa-tags"></sapn> <span>职位推荐</span>
-        </div>
-        <% @suggests.each do |job| %>
-        <div class="suggest-content">
-          <div>
-            <h3>
-              <%= link_to job_path(job), target: "_blank" do %>
-                <%= job.name %> [<%= job.location %>]
-              <% end %>
-            </h3>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1 suggest-title">
+              <sapn class="fa fa-tags"></sapn> <span>职位推荐</span>
+            </div>
+            <div class="row">
+            <% @suggests.each do |job| %>
+            <div class="col-xs-10 col-xs-offset-1 suggest-content">
+              <div>
+                <h3>
+                  <%= link_to job_path(job), target: "_blank" do %>
+                    <%= job.name %> [<%= job.location %>]
+                  <% end %>
+                </h3>
+              </div>
+              <div><p><%= job.wage_lower_bound %> k ~ <%= job.wage_upper_bound %> k</p></div>
+              <div><span><%= job.company %></span></div>
+            </div>
+            <% end %>
+            </div>
           </div>
-          <div><p><%= job.wage_lower_bound %> k ~ <%= job.wage_upper_bound %> k</p></div>
-          <div><span><%= job.company %></span></div>
         </div>
-        <% end %>
       </div>
     </div>
   </div>
