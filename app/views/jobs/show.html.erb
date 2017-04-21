@@ -16,6 +16,7 @@
     <!--======== Start - 右侧区块 =========-->
     <div class="col-md-3 job-action-box">
       <div>
+        <!--==== 判断是否已收藏 ====-->
         <% if current_user && current_user.is_member_of?(@job) %>
           <%= link_to remove_job_path(@job), method: :post, class: "btn btn-lg btn-primary" do %>
             <sapn class="fa fa-star"></sapn> 已收藏
@@ -27,6 +28,7 @@
         <% end %>
       </div>
       <div>
+        <!--==== 判断是否已投过简历 ====-->
         <% if @resumes.length > 0 %>
           <%= link_to("已投过简历", '#', class: "btn btn-lg btn-danger") %>
         <% else %>
