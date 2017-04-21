@@ -90,8 +90,9 @@ section{
   display: inline;
   position: absolute;
   margin-top: 15px;
-  padding-bottom: 10px;
   margin-left: 35px;
+  padding-bottom: 12.5px;
+  min-width: 260px;
 
   background-color: #1A6561;
   color: #fff;
@@ -100,13 +101,13 @@ section{
 
 .job-box{
   border: 1.5px solid #ddd;
-  background-color: #fff;
-  margin-top: 12.5px;
-  padding: 20px 15px 7.5px 15px;
-  color: #555;
-  font-family: "Hiragino Sans GB","Microsoft Yahei",SimSun,Arial,"Helvetica Neue",Helvetica;
-  font-size: 16px;
   box-shadow: 1px 1px 5px #ccc;
+  margin-top: 12.5px;
+  padding: 15px 1px 1px 1px;
+  background-color: #fff;
+  color: #555;
+  font-size: 16px;
+  font-family: "Hiragino Sans GB","Microsoft Yahei",SimSun,Arial,"Helvetica Neue",Helvetica;
 
   div{
     margin-bottom: 5px;
@@ -115,6 +116,7 @@ section{
   .info{
       display: inline;
       float: left;
+      min-width: 65%;
   }
 
   .info-top{
@@ -144,9 +146,9 @@ section{
   }
 
   .company{
-    float: right;
+    float: left;
     display: inline;
-    width: 35%;
+    max-width: 35%;
 
     span{
       width: 20px;
@@ -168,6 +170,7 @@ section{
 }
 
 .select-job-box{
+  margin-left: -15px;
 
   button{
     width: 100px;
@@ -180,26 +183,20 @@ section{
 }
 
 .suggest-title{
-  margin-top: 12.5px;
-  margin-bottom: 12.5px;
+  padding: 12.5px;
   text-align: center;
   font-size: 20px;
   letter-spacing: 0.5px;
 }
 
+
 .suggest-content{
-  width: 240px;
   background-color: #fff;
-  margin-left: -40px;
-  padding: 2px 2px 12px 12px;
+  padding: 7.5px;
   border: 0.5px dashed #eee;
 
-  div{
-    margin-top: -5px;
-    margin-bottom: -5px;
-  }
-
   h3{
+    margin-top: 1px;
     font-size: 16px;
   }
 
@@ -1518,7 +1515,7 @@ single-work span i.fa,
   margin-top: 10px;
 
   input{
-    width: 250px !important;
+    min-width: 225px !important;
   }
 }
 

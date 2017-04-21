@@ -1,5 +1,6 @@
 <div class="col-md-10 col-md-offset-1 job-content">
-  <div class="btn-group select-job-box">
+  <div class="row">
+    <div class="col-md-12 btn-group select-job-box">
     <!--=== 工作地点下拉选单 ===-->
     <div class="dropdown btn-group clearfix">
       <% if params[:location].present? %>
@@ -114,75 +115,82 @@
       </ul>
     </div>
   </div>
-
+  </div>
   <!--=== 工作列表 ===-->
-  <div class="main-box">
-<% if @jobs.length > 0 %>
-  <% @jobs.each do |job| %>
-  <div class="col-md-9 col-xs-9 job-box row">
-    <!--=== 职位信息 ===-->
-    <div class="info">
-      <div class="info-top">
-        <h3><%= link_to(job.name, job_path(job), target: "_blank" )%></h3><span><%= job.created_at.strftime("%Y-%m-%d") %></span>
-      </div>
-      <div class="info-mid">
-        <%= job.wage_lower_bound %> k ~ <%= job.wage_upper_bound %> k
-      </div>
-      <div class="info-bot">
-        <span class="category"><span class="<%= render_job_category(job) %>"> <%= job.category %></span>
-      </div>
-    </div>
-
-    <!--=== 公司信息 ===-->
-    <div class="company">
-      <div class="company-top">
-        <span><%= link_to(job.company, job_path(job))%></span>
-        <% if current_user && current_user.is_member_of?(job) %>
-          <%= link_to remove_job_path(job), method: :post do %>
-            <sapn class="fa fa-star"></sapn>
-          <% end %>
-        <% else %>
-          <%= link_to add_job_path(job), method: :post do %>
-            <sapn class="fa fa-star-o"></sapn>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="company-mid">
-        <sapn class="fa fa-envelope"></sapn><span><%= job.contact_mail %></span>
-      </div>
-      <div class="company-bot">
-        <sapn class="fa fa-map-marker"></sapn><span><%= job.location %></span>
-      </div>
-    </div>
-  </div>
-  <% end %>
-<% else %>
-  <!--=== 没有职位资料 ===-->
-  <div class="col-md-9 col-xs-3 no-job-data">
-    <h2>此分类暂时没有招聘职位哦，请尝试其他选项。</h2>
-  </div>
-<% end %>
-  </div>
-
-  <!--=== 随机推荐五个职位 ===-->
-  <div class="col-md-3 side-box">
-    <div class="col-md-10 col-md-offset-1">
-      <div class="suggest-title">
-        <sapn class="fa fa-tags"></sapn> <span>职位推荐</span>
-      </div>
-      <% @suggests.each do |job| %>
-      <div class="suggest-content">
-        <div>
-          <h3>
-            <%= link_to job_path(job), target: "_blank" do %>
-              <%= job.name %> [<%= job.location %>]
-            <% end %>
-          </h3>
+  <div class="row">
+  <% if @jobs.length > 0 %>
+    <% @jobs.each do |job| %>
+    <div class="col-md-9 col-xs-12 job-box">
+      <!--=== 职位信息 ===-->
+      <div class="col-md-6 col-xs-12 info">
+        <div class="info-top">
+          <h3><%= link_to(job.name, job_path(job), target: "_blank" )%></h3><span><%= job.created_at.strftime("%Y-%m-%d") %></span>
         </div>
-        <div><p><%= job.wage_lower_bound %> k ~ <%= job.wage_upper_bound %> k</p></div>
-        <div><span><%= job.company %></span></div>
+        <div class="info-mid">
+          <%= job.wage_lower_bound %> k ~ <%= job.wage_upper_bound %> k
+        </div>
+        <div class="info-bot">
+          <span class="category"><span class="<%= render_job_category(job) %>"> <%= job.category %></span>
+        </div>
       </div>
-      <% end %>
+
+      <!--=== 公司信息 ===-->
+      <div class="col-md-6 col-xs-12 company">
+        <div class="company-top">
+          <span><%= link_to(job.company, job_path(job))%></span>
+          <% if current_user && current_user.is_member_of?(job) %>
+            <%= link_to remove_job_path(job), method: :post do %>
+              <sapn class="fa fa-star"></sapn>
+            <% end %>
+          <% else %>
+            <%= link_to add_job_path(job), method: :post do %>
+              <sapn class="fa fa-star-o"></sapn>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="company-mid">
+          <sapn class="fa fa-envelope"></sapn><span><%= job.contact_mail %></span>
+        </div>
+        <div class="company-bot">
+          <sapn class="fa fa-map-marker"></sapn><span><%= job.location %></span>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  <% else %>
+    <!--=== 没有职位资料 ===-->
+    <div class="col-md-9 col-xs-12 no-job-data">
+      <h2>此分类暂时没有招聘职位哦，请尝试其他选项。</h2>
+    </div>
+  <% end %>
+
+
+    <!--=== 职位推荐：随机推荐五个职位 ===-->
+    <div class="col-md-3 side-box">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1 suggest-title">
+              <sapn class="fa fa-tags"></sapn> <span>职位推荐</span>
+            </div>
+            <div class="row">
+            <% @suggests.each do |job| %>
+            <div class="col-xs-10 col-xs-offset-1 suggest-content">
+              <div>
+                <h3>
+                  <%= link_to job_path(job), target: "_blank" do %>
+                    <%= job.name %> [<%= job.location %>]
+                  <% end %>
+                </h3>
+              </div>
+              <div><p><%= job.wage_lower_bound %> k ~ <%= job.wage_upper_bound %> k</p></div>
+              <div><span><%= job.company %></span></div>
+            </div>
+            <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
