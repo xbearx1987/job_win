@@ -27,7 +27,11 @@
         <% end %>
       </div>
       <div>
-        <%= link_to("投递简历", new_job_resume_path(@job), class: "btn btn-lg btn-success") %>
+        <% if @resumes.length > 0 %>
+          <%= link_to("已投过简历", '#', class: "btn btn-lg btn-danger") %>
+        <% else %>
+          <%= link_to("投递简历", new_job_resume_path(@job), class: "btn btn-lg btn-success") %>
+        <% end %>
       </div>
     </div>
     <!--======== End - 右侧区块 =========-->

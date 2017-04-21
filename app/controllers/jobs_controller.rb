@@ -53,6 +53,8 @@ class JobsController < ApplicationController
     # 随机推荐五个相同类型的职位（去除当前职位） #
     @sames = Job.where(:is_hidden => false, :category => @job.category).where.not(:id => @job.id ).random5
 
+    @resumes = Resume.where(:job => @job, :user => current_user)
+
     if @job.is_hidden
       redirect_to root_path, alert: "此职缺暂未开放。"
     end
