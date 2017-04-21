@@ -337,7 +337,7 @@ section{
 
   /*===== Start Job#Admin ====*/
   .admin-job-box{
-    margin-top: 50px;
+    margin-top: 5px;
     min-height: 425px;
 
     table{
@@ -355,6 +355,12 @@ section{
 
     .title{
       font-size: 15px;
+    }
+
+    .count{
+      font-size: 18px;
+      font-weight: 500;
+      color: #4A6BB5;
     }
 
     .wage{
@@ -485,6 +491,20 @@ section{
     height: 35px;
     font-size: 16px;
     letter-spacing: 1px;
+  }
+
+
+  .admin-select-job-box{
+    margin-top: 15px;
+
+    button{
+      width: 100px;
+    }
+
+    .btn-select{
+      background-color: #B6C9F2;
+      color: #fff;
+    }
   }
   /*===== End Job#admin ====*/
 

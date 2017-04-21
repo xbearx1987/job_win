@@ -1,6 +1,125 @@
 <div class="col-md-12">
-  <div class="job">
-    <%= link_to("新增职位", new_admin_job_path, class: "btn btn-primary pull-right action-btn") %>
+  <div class="row">
+    <div class="col-md-12 btn-group admin-select-job-box">
+      <!--=== 工作地点下拉选单 ===-->
+      <div class="dropdown btn-group clearfix">
+        <% if params[:location].present? %>
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <%= params[:location] %> <span class="caret"></span>
+        </button>
+        <% else %>
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          工作城市 <span class="caret"></span>
+        </button>
+        <% end %>
+        <ul class="dropdown-menu" selection aria-labelledby="dropdownMenuDivider">
+          <li>
+            <%= link_to("北京", admin_jobs_path(:location => "北京")) %>
+          </li>
+          <li>
+            <%= link_to("上海", admin_jobs_path(:location => "上海")) %>
+          </li>
+          <li>
+            <%= link_to("深圳", admin_jobs_path(:location => "深圳")) %>
+          </li>
+          <li>
+            <%= link_to("广州", admin_jobs_path(:location => "广州")) %>
+          </li>
+          <li>
+            <%= link_to("杭州", admin_jobs_path(:location => "杭州")) %>
+          </li>
+          <li>
+            <%= link_to("成都", admin_jobs_path(:location => "成都")) %>
+          </li>
+          <li>
+            <%= link_to("香港", admin_jobs_path(:location => "香港")) %>
+          </li>
+          <li>
+            <%= link_to("海外", admin_jobs_path(:location => "海外")) %>
+          </li>
+          <li>
+            <%= link_to("所有城市", admin_jobs_path(:location => "所有城市") ) %>
+          </li>
+        </ul>
+      </div>
+
+      <!--=== 职位类型下拉选单 ===-->
+      <div class="dropdown btn-group clearfix">
+        <% if params[:category].present? %>
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <%= params[:category] %> <span class="caret"></span>
+        </button>
+        <% else %>
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          职位类型 <span class="caret"></span>
+        </button>
+        <% end %>
+        <ul class="dropdown-menu" selection aria-labelledby="dropdownMenuDivider">
+          <li>
+            <%= link_to("技术", admin_jobs_path(:category => "技术")) %>
+          </li>
+          <li>
+            <%= link_to("产品", admin_jobs_path(:category => "产品")) %>
+          </li>
+          <li>
+            <%= link_to("设计", admin_jobs_path(:category => "设计")) %>
+          </li>
+          <li>
+            <%= link_to("运营", admin_jobs_path(:category => "运营")) %>
+          </li>
+          <li>
+            <%= link_to("市场", admin_jobs_path(:category => "市场")) %>
+          </li>
+          <li>
+            <%= link_to("销售", admin_jobs_path(:category => "销售")) %>
+          </li>
+          <li>
+            <%= link_to("职能", admin_jobs_path(:category => "职能")) %>
+          </li>
+          <li>
+            <%= link_to("其他", admin_jobs_path(:category => "其他")) %>
+          </li>
+          <li>
+            <%= link_to("所有类型", admin_jobs_path(:category => "所有类型") ) %>
+          </li>
+        </ul>
+      </div>
+
+      <!--=== 月薪下拉选单 ===-->
+      <div class="dropdown btn-group clearfix">
+        <% if params[:wage].present? %>
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <%= params[:wage] %> <span class="caret"></span>
+        </button>
+        <% else %>
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          月薪 <span class="caret"></span>
+        </button>
+        <% end %>
+        <ul class="dropdown-menu" selection aria-labelledby="dropdownMenuDivider">
+          <li>
+            <%= link_to("5k以下", admin_jobs_path(:wage => "5k以下")) %>
+          </li>
+          <li>
+            <%= link_to("5~10k", admin_jobs_path(:wage => "5~10k")) %>
+          </li>
+          <li>
+            <%= link_to("10~15k", admin_jobs_path(:wage => "10~15k")) %>
+          </li>
+          <li>
+            <%= link_to("15~25k", admin_jobs_path(:wage => "15~25k")) %>
+          </li>
+          <li>
+            <%= link_to("25k以上", admin_jobs_path(:wage => "25k以上")) %>
+          </li>
+        </ul>
+      </div>
+
+      <!--=== 新增职位 ===-->
+      <div class="job">
+        <%= link_to("新增职位", new_admin_job_path, class: "btn btn-primary pull-right action-btn") %>
+      </div>
+    </div>
   </div>
   <div class="admin-job-box">
 <% if @jobs.length > 0 %>
@@ -12,9 +131,9 @@
         <td>公司名称</td>
         <td>工作地点</td>
         <td>薪资范围</td>
-        <td>简历数量</td>
+        <td>简历/收藏</td>
         <td>发布时间</td>
-        <td></td>
+        <td class="count">已发布职位：<%= @jobs.count %></td>
       </tr>
     </thead>
     <tbody>
@@ -25,7 +144,10 @@
         <td><%= job.company %></td>
         <td><sapn class="fa fa-map-marker"></sapn> <%= job.location %></td>
         <td class="wage"><%= render_job_wage(job) %></td>
-        <td><%= link_to admin_job_resumes_path(job) do %><sapn class="<%= render_job_resumes(job) %>"></sapn> <%= job.resumes.count %><% end %></td>
+        <td>
+          <%= link_to admin_job_resumes_path(job) do %><sapn class="<%= render_job_resumes(job) %>"></sapn> <%= job.resumes.count %><% end %> /
+          <sapn class="<%= render_job_collections(job) %>"></sapn> <%= job.collections.count %>
+        </td>
         <td><%= job.created_at.strftime("%Y-%m-%d") %></td>
         <td>
           <!--=== 修改/删除/隐藏/显示 ===-->

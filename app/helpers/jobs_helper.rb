@@ -43,4 +43,13 @@ module JobsHelper
     end
   end
 
+  # 判断是否有人收藏icon #
+  def render_job_collections(job)
+    if job.collections.count > 0
+      "fa fa-heart"
+    else
+      "fa fa-heart-o"
+    end
+  end
+
 end

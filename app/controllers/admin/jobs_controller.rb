@@ -6,7 +6,44 @@ class Admin::JobsController < ApplicationController
   layout "admin"
 
   def index
-    @jobs = Job.where(:user => current_user).recent.paginate(:page => params[:page], :per_page => 10)
+    # 目前只能单个条件筛选 #
+    # 判断是否筛选城市 #
+    if params[:location].present?
+      @location = params[:location]
+      if @location == '所有城市'
+        @jobs = Job.where(:user => current_user).published.recent.paginate(:page => params[:page], :per_page => 10)
+      else
+        @jobs = Job.where(:user => current_user).where(:is_hidden => false, :location => @location).recent.paginate(:page => params[:page], :per_page => 10)
+      end
+
+    # 判断是否筛选职位类型 #
+    elsif params[:category].present?
+      @category = params[:category]
+      if @category == '所有类型'
+        @jobs = Job.where(:user => current_user).published.recent.paginate(:page => params[:page], :per_page => 10)
+      else
+        @jobs = Job.where(:user => current_user).where(:is_hidden => false, :category => @category).recent.paginate(:page => params[:page], :per_page => 10)
+      end
+
+    # 判断是否筛选薪水 #
+    elsif params[:wage].present?
+      @wage = params[:wage]
+      if @wage == '5k以下'
+        @jobs = Job.where(:user => current_user).wage1.recent.paginate(:page => params[:page], :per_page => 10)
+      elsif @wage == '5~10k'
+        @jobs = Job.where(:user => current_user).wage2.recent.paginate(:page => params[:page], :per_page => 10)
+      elsif @wage == '10~15k'
+        @jobs = Job.where(:user => current_user).wage3.recent.paginate(:page => params[:page], :per_page => 10)
+      elsif @wage == '15~25k'
+        @jobs = Job.where(:user => current_user).wage4.recent.paginate(:page => params[:page], :per_page => 10)
+      else
+        @jobs = Job.where(:user => current_user).wage5.recent.paginate(:page => params[:page], :per_page => 10)
+      end
+
+    # 预设显示所有公开职位 #
+    else
+      @jobs = Job.where(:user => current_user).recent.paginate(:page => params[:page], :per_page => 10)
+    end
   end
 
   def show
