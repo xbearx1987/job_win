@@ -17,7 +17,10 @@
           <div class="col-md-2 nav-sidebar">
             <ul class="list-unstyled">
                <li><%= link_to admin_jobs_path do %> <sapn class="fa fa-vcard-o"></sapn> <span>职位管理</span><% end %></li>
-               <li><%= link_to admin_locations_path do %> <sapn class="fa fa-map-marker"></sapn> <span>城市管理</span><% end %></li>
+               <% if current_user.website_admin? %>
+                 <li><%= link_to admin_locations_path do %> <sapn class="fa fa-map-marker"></sapn> <span>工作地点管理</span><% end %></li>
+                 <li><%= link_to admin_locations_path do %> <sapn class="fa fa-map-marker"></sapn> <span>职位类型管理</span><% end %></li>
+               <% end %>
                <li><%= link_to admin_jobs_path do %> <sapn class="fa fa-file-text-o"></sapn> <span>页面管理</span><% end %></li>
                <li><%= link_to admin_jobs_path do %> <sapn class="fa fa-user-circle-o"></sapn> <span>帐号设置</span><% end %></li>
             </ul>

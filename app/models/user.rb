@@ -15,6 +15,10 @@ class User < ApplicationRecord
     is_admin
   end
 
+  def website_admin?
+    is_website_admin
+  end
+
   def is_member_of?(job)
     collected_jobs.include?(job)
   end
