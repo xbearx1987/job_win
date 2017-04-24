@@ -17,7 +17,12 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :locations
+    resources :locations do
+      member do
+        post :publish
+        post :hide
+      end
+    end
 
     resources :jobs do
       member do

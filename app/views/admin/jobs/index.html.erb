@@ -142,29 +142,29 @@
         <td class="title"><span class="<%= render_job_status(job) %>"></span> <%= link_to(job.name, job_path(job)) %></td>
         <td><span class="<%= render_job_category(job) %>"> <%= job.category %></td>
         <td><%= job.company %></td>
-        <td><sapn class="fa fa-map-marker"></sapn> <%= job.location %></td>
+        <td><span class="fa fa-map-marker"></span> <%= job.location %></td>
         <td class="wage"><%= render_job_wage(job) %></td>
         <td>
-          <%= link_to admin_job_resumes_path(job) do %><sapn class="<%= render_job_resumes(job) %>"></sapn> <%= job.resumes.count %><% end %> /
-          <sapn class="<%= render_job_collections(job) %>"></sapn> <%= job.collections.count %>
+          <%= link_to admin_job_resumes_path(job) do %><span class="<%= render_job_resumes(job) %>"></span> <%= job.resumes.count %><% end %> /
+          <span class="<%= render_job_collections(job) %>"></span> <%= job.collections.count %>
         </td>
         <td><%= job.created_at.strftime("%Y-%m-%d") %></td>
         <td>
           <!--=== 修改/删除/隐藏/显示 ===-->
           <div class="action-box">
           <%= link_to(edit_admin_job_path(job), class: "btn btn-md btn-default") do %>
-            <sapn class="fa fa-pencil"></sapn>
+            <span class="fa fa-pencil"></span>
           <% end %>
           <%= link_to(admin_job_path(job), class: "btn btn-md btn-default", method: :delete, data: { confirm: "确定删除此职位？" } ) do%>
-            <sapn class="fa fa-trash-o"></sapn>
+            <span class="fa fa-trash-o"></span>
           <% end %>
           <% if job.is_hidden %>
             <%= link_to(publish_admin_job_path(job), :method => :post, class: "btn btn-md btn-default show-btn") do %>
-              <sapn class="fa fa-eye"></sapn>
+              <span class="fa fa-eye"></span>
             <% end %>
           <% else %>
             <%= link_to(hide_admin_job_path(job), :method => :post, class: "btn btn-md btn-default") do %>
-              <sapn class="fa fa-eye-slash"></sapn>
+              <span class="fa fa-eye-slash"></span>
             <% end %>
           <% end %>
           </div>

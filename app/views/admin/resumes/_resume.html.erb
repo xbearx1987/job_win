@@ -3,15 +3,15 @@
       <div class="row">
           <div class="col-md-12">
               <h3 class="panel-title">
-                  <span><sapn class="fa fa-user-circle-o"></sapn> 求职者：<%= resume.user.name %> - <%= resume.user.email %>
-                  <span class="resume-time"><sapn class="fa fa-envelope-o"></sapn> 投递时间：<%= resume.created_at.strftime("%Y-%m-%d %T") %></span>
+                  <span><span class="fa fa-user-circle-o"></span> 求职者：<%= resume.user.name %> - <%= resume.user.email %>
+                  <span class="resume-time"><span class="fa fa-envelope-o"></span> 投递时间：<%= resume.created_at.strftime("%Y-%m-%d %T") %></span>
               </h3>
           </div>
       </div>
   </div>
   <div class="panel-body">
       <div class="trix-content">
-        <h4><span><sapn class="fa fa-wordpress"></sapn> 简历描述：</h4>
+        <h4><span><span class="fa fa-wordpress"></span> 简历描述：</h4>
         <p> <%= simple_format(resume.content) %></p>
       </div>
       <hr>

@@ -6,7 +6,7 @@
       <h1><%= @job.name %><span class="company">  / <%= @job.company %></span></h1>
       <p>
         <span class="wage"><%= @job.wage_lower_bound %> k ~ <%= @job.wage_upper_bound %> k </span> /
-        <span><sapn class="fa fa-map-marker"></sapn> <%= @job.location %></span> /
+        <span><span class="fa fa-map-marker"></span> <%= @job.location %></span> /
         <span><span class="<%= render_job_category(@job) %>"> <%= @job.category %></span>
        </p>
       <p class="created"><%= @job.created_at.strftime("%Y-%m-%d") %> <span class="website">发布于职赢网</span></p>
@@ -19,11 +19,11 @@
         <!--==== 判断是否已收藏 ====-->
         <% if current_user && current_user.is_member_of?(@job) %>
           <%= link_to remove_job_path(@job), method: :post, class: "btn btn-lg btn-primary" do %>
-            <sapn class="fa fa-star"></sapn> 已收藏
+            <span class="fa fa-star"></span> 已收藏
           <% end %>
         <% else %>
           <%= link_to add_job_path(@job), method: :post, class: "btn btn-lg btn-default" do %>
-            <sapn class="fa fa-star-o"></sapn> 收藏
+            <span class="fa fa-star-o"></span> 收藏
           <% end %>
         <% end %>
       </div>
@@ -51,7 +51,7 @@
       <hr />
       <div class="mail-info">
         <h4>联络信息：</h4>
-        <p class="email"><sapn class="fa fa-envelope"></sapn> <%= @job.contact_mail %></p>
+        <p class="email"><span class="fa fa-envelope"></span> <%= @job.contact_mail %></p>
       </div>
     </div>
     <!--======== End - 左侧区块 =========-->

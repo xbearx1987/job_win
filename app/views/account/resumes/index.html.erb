@@ -1,6 +1,6 @@
 <% if @resumes.length > 0 %>
   <div class="col-md-10 col-md-offset-1 page-title">
-    <h1><sapn class="fa fa-envelope-o"></sapn> 投递过的职位</h1>
+    <h1><span class="fa fa-envelope-o"></span> 投递过的职位</h1>
   </div>
   <div class="col-md-10 col-md-offset-1 job-content">
     <div class="main-box">
@@ -25,19 +25,19 @@
           <span><%= link_to(resume.job.company, job_path(resume.job))%></span>
           <% if current_user && current_user.is_member_of?(resume.job) %>
             <%= link_to remove_job_path(resume.job), method: :post do %>
-              <sapn class="fa fa-star"></sapn>
+              <span class="fa fa-star"></span>
             <% end %>
           <% else %>
             <%= link_to add_job_path(resume.job), method: :post do %>
-              <sapn class="fa fa-star-o"></sapn>
+              <span class="fa fa-star-o"></span>
             <% end %>
           <% end %>
         </div>
         <div class="company-mid">
-          <sapn class="fa fa-envelope"></sapn><span><%= resume.job.contact_mail %></span>
+          <span class="fa fa-envelope"></span><span><%= resume.job.contact_mail %></span>
         </div>
         <div class="company-bot">
-          <sapn class="fa fa-map-marker"></sapn><span><%= resume.job.location %></span>
+          <span class="fa fa-map-marker"></span><span><%= resume.job.location %></span>
         </div>
       </div>
     </div>
@@ -52,7 +52,7 @@
         <div class="col-md-12">
           <div class="row">
             <div class="col-md-10 col-md-offset-1 suggest-title">
-              <sapn class="fa fa-tags"></sapn> <span>职位推荐</span>
+              <span class="fa fa-tags"></span> <span>职位推荐</span>
             </div>
             <div class="row">
             <% @suggests.each do |job| %>

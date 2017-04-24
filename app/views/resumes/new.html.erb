@@ -1,11 +1,11 @@
 <div class="col-md-6 col-md-offset-3 job-resume-box">
-  <h3><sapn class="fa fa-envelope-o"></sapn> 投递简历</h3>
+  <h3><span class="fa fa-envelope-o"></span> 投递简历</h3>
   <hr>
   <div class="job-info-box">
-    <h3><sapn class="fa fa-tag"></sapn> <%= @job.name %><span class="company">  / <%= @job.company %></span></h3>
+    <h3><span class="fa fa-tag"></span> <%= @job.name %><span class="company">  / <%= @job.company %></span></h3>
     <p>
       <span class="wage"><%= @job.wage_lower_bound %> k ~ <%= @job.wage_upper_bound %> k </span> /
-      <span><sapn class="fa fa-map-marker"></sapn> <%= @job.location %></span> /
+      <span><span class="fa fa-map-marker"></span> <%= @job.location %></span> /
       <span><span class="<%= render_job_category(@job) %>"> <%= @job.category %></span>
      </p>
     <p class="created"><%= @job.created_at.strftime("%Y-%m-%d") %> <span class="website">发布于职赢网</span></p>

@@ -10,7 +10,7 @@
 <!--=== 搜索结果，有符合条件的数据 ===-->
   <!--=== 搜索结果文字 ===-->
 <div class="col-md-10 col-md-offset-1 page-title">
-  <h1><sapn class="fa fa-search"></sapn> 搜索结果</h1>
+  <h1><span class="fa fa-search"></span> 搜索结果</h1>
 </div>
 
 <!--=== 搜索结果内容 ===-->
@@ -38,19 +38,19 @@
           <span><%= link_to(job.company, job_path(job))%></span>
           <% if current_user && current_user.is_member_of?(job) %>
             <%= link_to remove_job_path(job), method: :post do %>
-              <sapn class="fa fa-star"></sapn>
+              <span class="fa fa-star"></span>
             <% end %>
           <% else %>
             <%= link_to add_job_path(job), method: :post do %>
-              <sapn class="fa fa-star-o"></sapn>
+              <span class="fa fa-star-o"></span>
             <% end %>
           <% end %>
         </div>
         <div class="company-mid">
-          <sapn class="fa fa-envelope"></sapn><span><%= job.contact_mail %></span>
+          <span class="fa fa-envelope"></span><span><%= job.contact_mail %></span>
         </div>
         <div class="company-bot">
-          <sapn class="fa fa-map-marker"></sapn><span><%= job.location %></span>
+          <span class="fa fa-map-marker"></span><span><%= job.location %></span>
         </div>
       </div>
     </div>
@@ -62,7 +62,7 @@
         <div class="col-md-12">
           <div class="row">
             <div class="col-md-10 col-md-offset-1 suggest-title">
-              <sapn class="fa fa-tags"></sapn> <span>职位推荐</span>
+              <span class="fa fa-tags"></span> <span>职位推荐</span>
             </div>
             <div class="row">
             <% @suggests.each do |job| %>

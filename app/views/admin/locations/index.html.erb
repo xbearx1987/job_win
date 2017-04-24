@@ -1,0 +1,41 @@
+<div class="col-md-8 col-md-offset-2 admin-box">
+  <div class="row">
+    <div class="col-md-4">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <td>工作地点</td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @locations.each do |location| %>
+          <tr class="location-list">
+            <td class="title"><%= location.name %></td>
+            <td>
+              <!--=== 修改/隐藏/显示 ===-->
+              <div class="action-box">
+              <%= link_to(edit_admin_location_path(location), class: "btn btn-md btn-default") do %>
+                <span class="fa fa-pencil"></span>
+              <% end %>
+              <% if location.is_hidden %>
+                <%= link_to(publish_admin_location_path(location), :method => :post, class: "btn btn-md btn-default show-btn") do %>
+                  <span class="fa fa-eye"></span>
+                <% end %>
+              <% else %>
+                <%= link_to(hide_admin_location_path(location), :method => :post, class: "btn btn-md btn-default") do %>
+                  <span class="fa fa-eye-slash"></span>
+                <% end %>
+              <% end %>
+              </div>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-8">
+
+    </div>
+  </div>
+</div>
