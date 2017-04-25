@@ -511,12 +511,26 @@ section{
   /*===== Start admin#else ====*/
 .admin-box{
   min-height: 500px;
-  margin-top: 125px;
+  margin-top: 25px;
   margin-bottom: 50px;
 
   .show-btn{
     background-color: #B6C9F2;
     border: 1px solid #aaa;
+  }
+
+  .title-box{
+    .title{
+      margin-left: 35%;
+      display: inline;
+      float: left;
+    }
+
+    .button{
+      margin-top: 20px;
+      display: inline;
+      float: right;
+    }
   }
 
   .name-box{
@@ -527,6 +541,51 @@ section{
   }
 }
 
+.admin-form{
+  background: #fafafa;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-shadow: 1px 3px 5px #333;
+  border: 5px solid #666;
+  border-radius: 25px;
+
+  opacity:0.95;
+  filter:alpha(opacity=95);
+  hr {
+    height:1px;
+    background-color:#ccc;
+  }
+
+  .admin-form-content{
+    h2{
+      text-align: center;
+      color: #3D537F;
+      letter-spacing: 1px;
+    }
+
+    .form-actions{
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 25px;
+
+      .button{
+        color: #fff;
+        background-color: #4A6BB5;
+        border-color: #4A6BB5;
+        font-size: 16px;
+        letter-spacing: 1px;
+        width: 100%;
+      }
+      .button:hover{
+          background-color: #4A99B5;
+          border-color: #4A99B5;
+          color: #fff;
+      }
+    }
+  }
+}
 
 
 

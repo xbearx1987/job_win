@@ -1,11 +1,13 @@
 <div class="col-md-8 col-md-offset-2 admin-box">
   <div class="row">
     <div class="col-md-12">
-      <div><%= link_to("新增工作地点", new_admin_location_path, class: "btn btn-primary pull-right") %></div>
       <table class="table table-hover">
         <thead>
           <tr>
-            <td colspan="6" style="text-align:center"><h2><span class="fa fa-map-marker"></span> 工作地点</h2></td>
+            <td colspan="6" class="title-box">
+              <div class="title"><h2><span class="fa fa-map-marker"></span> 工作地点</h2></div>
+              <div class="button"><%= link_to("新增工作地点", new_admin_location_path, class: "btn btn-primary pull-right") %></div>
+            </td>
           </tr>
         </thead>
         <tbody>
