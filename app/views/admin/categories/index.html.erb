@@ -13,28 +13,40 @@
         <tbody>
           <% i = 1 %>
           <% @categorys.each do |category| %>
-          <% if i%3 == 1%>
+          <% if i%2 == 1%>
           <tr>
           <% end %>
-            <td class="name-box"><%= category.name %></td>
-            <td>
+            <td class="name-box">#<%= category.sort %> <span class="<%= category.icon %>"></span> <%= category.name %></td>
+            <td class="action-box">
               <!--=== 修改/隐藏/显示 ===-->
               <div>
+              <%= link_to(up_admin_category_path(category), :method => :post, class: "btn btn-md btn-default sort-btn") do %>
+                <span class="fa fa-angle-up"></span>
+              <% end %>
+              <%= link_to(down_admin_category_path(category), :method => :post, class: "btn btn-md btn-default sort-btn") do %>
+                <span class="fa fa-angle-down"></span>
+              <% end %>
+
               <%= link_to(edit_admin_category_path(category), class: "btn btn-md btn-default") do %>
                 <span class="fa fa-pencil"></span>
               <% end %>
-              <% if category.is_hidden %>
-                <%= link_to(publish_admin_category_path(category), :method => :post, class: "btn btn-md btn-default show-btn") do %>
-                  <span class="fa fa-eye"></span>
-                <% end %>
-              <% else %>
-                <%= link_to(hide_admin_category_path(category), :method => :post, class: "btn btn-md btn-default") do %>
-                  <span class="fa fa-eye-slash"></span>
+
+                <% if category.is_lock %>
+                  <span class="fa fa-lock btn btn-md btn-default lock-btn" disabled="disabled"></span>
+                <% else %>
+                  <% if category.is_hidden %>
+                    <%= link_to(publish_admin_category_path(category), :method => :post, class: "btn btn-md btn-default show-btn") do %>
+                      <span class="fa fa-eye"></span>
+                    <% end %>
+                  <% else %>
+                    <%= link_to(hide_admin_category_path(category), :method => :post, class: "btn btn-md btn-default") do %>
+                      <span class="fa fa-eye-slash"></span>
+                    <% end %>
                 <% end %>
               <% end %>
               </div>
             </td>
-          <% if i%3 == 0%>
+          <% if i%2 == 0%>
           </tr>
           <% end %>
           <% i += 1 %>

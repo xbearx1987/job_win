@@ -2,7 +2,7 @@ class Admin::CategoriesController < ApplicationController
   layout "admin"
 
     def index
-      @categorys = Category.all
+      @categorys = Category.all.order("sort")
     end
 
     def new
@@ -11,7 +11,10 @@ class Admin::CategoriesController < ApplicationController
 
     def create
       @category = Category.new(category_params)
-      if @category.save
+      @sort = Category.last.sort + 1
+      @category.sort = @sort
+
+      if @category.save!
         redirect_to admin_categories_path, notice: "职位类型新增成功。"
       else
         render :new
@@ -43,6 +46,20 @@ class Admin::CategoriesController < ApplicationController
     def hide
       @category = Category.find(params[:id])
       @category.is_hidden = true
+      @category.save
+      redirect_to :back
+    end
+
+    def up
+      @category = Category.find(params[:id])
+      @category.sort -= 1
+      @category.save
+      redirect_to :back
+    end
+
+    def down
+      @category = Category.find(params[:id])
+      @category.sort += 1
       @category.save
       redirect_to :back
     end
