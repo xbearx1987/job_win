@@ -27,17 +27,24 @@
                 <span class="fa fa-angle-down"></span>
               <% end %>
 
-              <%= link_to(edit_admin_category_path(category), class: "btn btn-md btn-default") do %>
-                <span class="fa fa-pencil"></span>
-              <% end %>
-
+                <!--=== 如果系统预设锁定 ===-->
                 <% if category.is_lock %>
-                  <span class="fa fa-lock btn btn-md btn-default lock-btn" disabled="disabled"></span>
+                  <span class="fa fa-pencil btn btn-md btn-default lock-btn" disabled="disabled"></span>
+                  <span class="fa fa-eye-slash btn btn-md btn-default lock-btn" disabled="disabled"></span>
+
+                <!--=== 如果类型没有锁定 ===-->
                 <% else %>
+                  <%= link_to(edit_admin_category_path(category), class: "btn btn-md btn-default") do %>
+                    <span class="fa fa-pencil" disabled="disabled"></span>
+                  <% end %>
+
+                  <!--=== 如果类型隐藏 ===-->
                   <% if category.is_hidden %>
                     <%= link_to(publish_admin_category_path(category), :method => :post, class: "btn btn-md btn-default show-btn") do %>
                       <span class="fa fa-eye"></span>
                     <% end %>
+
+                  <!--=== 如果类型公开 ===-->
                   <% else %>
                     <%= link_to(hide_admin_category_path(category), :method => :post, class: "btn btn-md btn-default") do %>
                       <span class="fa fa-eye-slash"></span>
