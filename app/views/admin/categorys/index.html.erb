@@ -5,30 +5,30 @@
         <thead>
           <tr>
             <td colspan="6" class="title-box">
-              <div class="title"><h2><span class="fa fa-location-arrow"></span> 工作地点</h2></div>
-              <div class="button"><%= link_to("新增工作地点", new_admin_location_path, class: "btn btn-primary pull-right") %></div>
+              <div class="title"><h2><span class="fa fa-cogs"></span> 职位类型</h2></div>
+              <div class="button"><%= link_to("新增职位类型", new_admin_category_path, class: "btn btn-primary pull-right") %></div>
             </td>
           </tr>
         </thead>
         <tbody>
           <% i = 1 %>
-          <% @locations.each do |location| %>
+          <% @categorys.each do |category| %>
           <% if i%3 == 1%>
           <tr>
           <% end %>
-            <td class="name-box"><%= location.name %></td>
+            <td class="name-box"><%= category.name %></td>
             <td>
               <!--=== 修改/隐藏/显示 ===-->
               <div>
-              <%= link_to(edit_admin_location_path(location), class: "btn btn-md btn-default") do %>
+              <%= link_to(edit_admin_category_path(category), class: "btn btn-md btn-default") do %>
                 <span class="fa fa-pencil"></span>
               <% end %>
-              <% if location.is_hidden %>
-                <%= link_to(publish_admin_location_path(location), :method => :post, class: "btn btn-md btn-default show-btn") do %>
+              <% if category.is_hidden %>
+                <%= link_to(publish_admin_category_path(category), :method => :post, class: "btn btn-md btn-default show-btn") do %>
                   <span class="fa fa-eye"></span>
                 <% end %>
               <% else %>
-                <%= link_to(hide_admin_location_path(location), :method => :post, class: "btn btn-md btn-default") do %>
+                <%= link_to(hide_admin_category_path(category), :method => :post, class: "btn btn-md btn-default") do %>
                   <span class="fa fa-eye-slash"></span>
                 <% end %>
               <% end %>

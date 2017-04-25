@@ -14,7 +14,10 @@ ActiveRecord::Schema.define(version: 20170425053157) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
+    t.string   "icon"
+    t.integer  "sort"
     t.boolean  "is_hidden",  default: false
+    t.boolean  "is_lock",    default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end

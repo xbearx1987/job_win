@@ -18,8 +18,8 @@
             <ul class="list-unstyled">
                <li><%= link_to admin_jobs_path do %> <span class="fa fa-vcard-o"></span> <span>职位管理</span><% end %></li>
                <% if current_user.website_admin? %>
-                 <li><%= link_to admin_locations_path do %> <span class="fa fa-map-marker"></span> <span>工作地点管理</span><% end %></li>
-                 <li><%= link_to admin_locations_path do %> <span class="fa fa-map-marker"></span> <span>职位类型管理</span><% end %></li>
+                 <li><%= link_to admin_locations_path do %> <span class="fa fa-location-arrow"></span> <span>工作地点管理</span><% end %></li>
+                 <li><%= link_to admin_categories_path do %> <span class="fa fa-cogs"></span> <span>职位类型管理</span><% end %></li>
                <% end %>
                <li><%= link_to admin_jobs_path do %> <span class="fa fa-file-text-o"></span> <span>页面管理</span><% end %></li>
                <li><%= link_to admin_jobs_path do %> <span class="fa fa-user-circle-o"></span> <span>帐号设置</span><% end %></li>

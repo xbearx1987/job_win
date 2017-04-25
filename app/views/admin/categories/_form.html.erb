@@ -1,0 +1,14 @@
+<div class="col-md-10 col-md-offset-1">
+  <hr />
+  <%= simple_form_for [:admin,@category] do |f| %>
+    <div>
+      <%= f.input :name, :label => false, placeholder: '请输入职位类型' %>
+      <%= f.input :icon, :label => false, placeholder: '请输入ICON代码（例如：fa fa-laptop）' %>
+      <hr />
+      <span><%= f.input :is_hidden, label: '隐藏职位类型', :input_html => { :checked => true } %></span>
+    </div>
+    <div class="form-actions">
+      <%= f.submit "送出", disable_with: "Submiting...", class: "button"%>
+    </div>
+  <% end %>
+</div>

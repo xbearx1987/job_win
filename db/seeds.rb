@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 locations = Location.create([{ name: '北京' }, { name: '上海' }, { name: '深圳' }, { name: '广州' }, { name: '杭州' }, { name: '成都' }, { name: '香港' }, { name: '海外' }, { name: '南京', is_hidden: true }, { name: '苏州', is_hidden: true }])
+categorys = Category.create([{ name: '技术', icon: 'fa fa-laptop' , sort: 1, is_lock: true }, { name: '产品', icon: 'fa fa-tasks' , sort: 2, is_lock: true }, { name: '设计', icon: 'fa fa-photo' , sort: 3, is_lock: true }, { name: '运营', icon: 'fa fa-line-chart' , sort: 4, is_lock: true }, { name: '市场', icon: 'fa fa-pie-chart' , sort: 5, is_lock: true }, { name: '销售', icon: 'fa fa-cny' , sort: 6, is_lock: true }, { name: '职能', icon: 'fa fa-paste' , sort: 7, is_lock: true }, { name: '其他', icon: 'fa fa-address-book-o' , sort: 8, is_lock: true }, { name: '金融', is_hidden: true }, { name: '客服', is_hidden: true }])
