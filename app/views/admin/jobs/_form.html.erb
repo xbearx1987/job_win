@@ -8,15 +8,15 @@
         <hr />
         <!--=== 职位类型 ===-->
         <% if @job.category? %>
-          <%= f.input :category, :label => "职位类型", :collection => ["技术", "产品", "设计", "运营", "市场", "销售", "职能", "其他"], :checked => @job.category, input_html: { class: 'category' } %>
+          <%= f.input :category, :label => "职位类型", :collection => @categorys, :checked => @job.category, input_html: { class: 'category' } %>
         <% else %>
-          <%= f.input :category, :label => "职位类型", :collection => ["技术", "产品", "设计", "运营", "市场", "销售", "职能", "其他"], input_html: { class: 'category' } %>
+          <%= f.input :category, :label => "职位类型", :collection => @categorys, input_html: { class: 'category' } %>
         <% end %>
         <!--=== 工作地点 ===-->
         <% if @job.location? %>
-          <%= f.input :location, :label => "工作地点", :collection => ["北京", "上海", "深圳", "广州", "杭州", "成都", "香港", "海外"], :checked => @job.location, input_html: { class: 'location' } %>
+          <%= f.input :location, :label => "工作地点", :collection => @locations, :checked => @job.location, input_html: { class: 'location' } %>
         <% else %>
-          <%= f.input :location, :label => "工作地点", :collection => ["北京", "上海", "深圳", "广州", "杭州", "成都", "香港", "海外"], input_html: { class: 'location' } %>
+          <%= f.input :location, :label => "工作地点", :collection => @locations, input_html: { class: 'location' } %>
         <% end %>
         <%= f.input :wage_lower_bound, :label => '薪资' do %>
            <%= f.input_field :wage_lower_bound, :as => :string, class: "wage" %> <span class="wage-form">k ~</span>

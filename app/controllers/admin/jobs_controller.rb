@@ -52,6 +52,8 @@ class Admin::JobsController < ApplicationController
 
   def new
     @job = Job.new
+    @categorys = Category.published.order("sort")
+    @locations = Location.published
   end
 
   def create
@@ -66,6 +68,8 @@ class Admin::JobsController < ApplicationController
   end
 
   def edit
+    @categorys = Category.published.order("sort")
+    @locations = Location.published
   end
 
   def update

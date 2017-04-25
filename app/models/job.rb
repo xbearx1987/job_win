@@ -13,6 +13,8 @@ class Job < ApplicationRecord
   validates_format_of :contact_mail, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i , message: "请输入正确的邮箱格式"
 
   belongs_to :user
+  belongs_to :location
+  belongs_to :category
   has_many :resumes, dependent: :destroy
   has_many :collections, dependent: :destroy
   has_many :members, through: :collections, source: :user
