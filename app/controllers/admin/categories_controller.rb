@@ -1,4 +1,7 @@
 class Admin::CategoriesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :require_is_website_admin
+
   layout "admin"
 
     def index
@@ -69,4 +72,5 @@ class Admin::CategoriesController < ApplicationController
     def category_params
       params.require(:category).permit(:name,:icon,:is_hidden)
     end
+    
 end

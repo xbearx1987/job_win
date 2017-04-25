@@ -6,4 +6,10 @@ class ApplicationController < ActionController::Base
       redirect_to root_path, alert: "你没有权限进行此操作。"
     end
   end
+
+  def require_is_website_admin
+    if !current_user.website_admin?
+      redirect_to root_path, alert: "你没有权限进行此操作。"
+    end
+  end
 end
