@@ -5,7 +5,7 @@ class Admin::LocationsController < ApplicationController
   layout "admin"
 
   def index
-    @locations = Location.all
+    @locations = Location.all.order("sort")
   end
 
   def new
@@ -14,6 +14,9 @@ class Admin::LocationsController < ApplicationController
 
   def create
     @location = Location.new(location_params)
+    @sort = Location.last.sort + 1
+    @location.sort = @sort
+
     if @location.save
       redirect_to admin_locations_path, notice: "工作地点新增成功。"
     else
