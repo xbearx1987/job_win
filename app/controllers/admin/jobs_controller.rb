@@ -6,23 +6,30 @@ class Admin::JobsController < ApplicationController
   layout "admin"
 
   def index
+    @locations = Location.published.sortA
+    @categorys = Category.published.sortA
+
     # 目前只能单个条件筛选 #
     # 判断是否筛选城市 #
     if params[:location].present?
       @location = params[:location]
+      @location_id = Location.find_by(name: @location)
+
       if @location == '所有城市'
-        @jobs = Job.where(:user => current_user).published.recent.paginate(:page => params[:page], :per_page => 10)
+        @jobs = Job.where(:user => current_user).recent.paginate(:page => params[:page], :per_page => 10)
       else
-        @jobs = Job.where(:user => current_user).where(:is_hidden => false, :location => @location).recent.paginate(:page => params[:page], :per_page => 10)
+        @jobs = Job.where(:user => current_user, :location_id => @location_id).recent.paginate(:page => params[:page], :per_page => 10)
       end
 
     # 判断是否筛选职位类型 #
     elsif params[:category].present?
       @category = params[:category]
+      @category_id = Category.find_by(name: @category)
+
       if @category == '所有类型'
-        @jobs = Job.where(:user => current_user).published.recent.paginate(:page => params[:page], :per_page => 10)
+        @jobs = Job.where(:user => current_user).recent.paginate(:page => params[:page], :per_page => 10)
       else
-        @jobs = Job.where(:user => current_user).where(:is_hidden => false, :category => @category).recent.paginate(:page => params[:page], :per_page => 10)
+        @jobs = Job.where(:user => current_user, :category => @category_id).recent.paginate(:page => params[:page], :per_page => 10)
       end
 
     # 判断是否筛选薪水 #
@@ -52,8 +59,8 @@ class Admin::JobsController < ApplicationController
 
   def new
     @job = Job.new
-    @categorys = Category.published.order("sort")
-    @locations = Location.published
+    @categorys = Category.published.sortA
+    @locations = Location.published.sortA
   end
 
   def create
@@ -68,8 +75,8 @@ class Admin::JobsController < ApplicationController
   end
 
   def edit
-    @categorys = Category.published.order("sort")
-    @locations = Location.published
+    @categorys = Category.published.sortA
+    @locations = Location.published.sortA
   end
 
   def update

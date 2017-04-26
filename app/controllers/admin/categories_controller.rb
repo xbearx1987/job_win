@@ -5,7 +5,7 @@ class Admin::CategoriesController < ApplicationController
   layout "admin"
 
     def index
-      @categorys = Category.all.order("sort")
+      @categorys = Category.all.sortA
     end
 
     def new
@@ -16,7 +16,7 @@ class Admin::CategoriesController < ApplicationController
       @category = Category.new(category_params)
 
       # 新增数据的排序为目前最大排序再 +1 #
-      @category.sort = Category.order("sort DESC").first.sort + 1
+      @category.sort = Category.sortD.first.sort + 1
 
       if @category.save!
         redirect_to admin_categories_path, notice: "职位类型新增成功。"
