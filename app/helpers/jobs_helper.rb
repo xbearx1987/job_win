@@ -31,4 +31,11 @@ module JobsHelper
     end
   end
 
+  # 判断是否隐藏该职缺 #
+  def render_job_hidden(job)
+    if job.is_hidden
+      "hidden-box"
+    end
+  end
+
 end

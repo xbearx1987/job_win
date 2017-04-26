@@ -1,6 +1,6 @@
 class Admin::JobsController < ApplicationController
-  before_action :authenticate_user! , only: [:new, :create, :edit, :update, :destroy]
-  before_action :find_job_and_check_permission , only: [:edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :find_job_and_check_permission , only: [:edit, :update]
   before_action :require_is_admin
 
   layout "admin"
@@ -89,11 +89,6 @@ class Admin::JobsController < ApplicationController
     end
   end
 
-  def destroy
-    @job.destroy
-      redirect_to admin_jobs_path, alert: '职位删除成功。'
-  end
-
   def publish
     @job = Job.find(params[:id])
     @job.is_hidden = false
@@ -119,7 +114,7 @@ private
   end
 
   def job_params
-    params.require(:job).permit(:name,:content,:company,:category_id,:location_id,:wage_lower_bound,:wage_upper_bound,:contact_mail,:is_hidden)
+    params.require(:job).permit(:name, :content, :company, :category_id, :location_id, :wage_lower_bound, :wage_upper_bound, :contact_mail, :is_hidden)
   end
 
 end

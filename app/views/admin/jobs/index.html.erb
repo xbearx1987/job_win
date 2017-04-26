@@ -95,12 +95,12 @@
         <td>薪资范围</td>
         <td>简历/收藏</td>
         <td>发布时间</td>
-        <td class="count">已发布职位：<%= @jobs.count %></td>
+        <td class="count">已发布职位：<span><%= @jobs.count %></span></td>
       </tr>
     </thead>
     <tbody>
       <% @jobs.each do |job| %>
-      <tr class="job-list">
+      <tr class="job-list <%= render_job_hidden(job) %>">
         <td class="title"><span class="<%= render_job_status(job) %>"></span> <%= link_to(job.name, job_path(job)) %></td>
         <td><span class="<%= job.category.icon %>"> <%= job.category.name %></td>
         <td><%= job.company %></td>
@@ -112,20 +112,18 @@
         </td>
         <td><%= job.created_at.strftime("%Y-%m-%d") %></td>
         <td>
-          <!--=== 修改/删除/隐藏/显示 ===-->
+          <!--=== 修改/隐藏/显示 ===-->
           <div class="action-box">
           <%= link_to(edit_admin_job_path(job), class: "btn btn-md btn-default") do %>
             <span class="fa fa-pencil"></span>
           <% end %>
-          <%= link_to(admin_job_path(job), class: "btn btn-md btn-default", method: :delete, data: { confirm: "确定删除此职位？" } ) do%>
-            <span class="fa fa-trash-o"></span>
-          <% end %>
+
           <% if job.is_hidden %>
             <%= link_to(publish_admin_job_path(job), :method => :post, class: "btn btn-md btn-default show-btn") do %>
               <span class="fa fa-eye"></span>
             <% end %>
           <% else %>
-            <%= link_to(hide_admin_job_path(job), :method => :post, class: "btn btn-md btn-default") do %>
+            <%= link_to(hide_admin_job_path(job), :method => :post, data: { confirm: "确定隐藏该职位？" }, class: "btn btn-md btn-default") do %>
               <span class="fa fa-eye-slash"></span>
             <% end %>
           <% end %>

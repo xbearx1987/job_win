@@ -349,6 +349,10 @@ section{
       font-size: 16px;
     }
 
+    .hidden-box{
+      background-color: #eee;
+    }
+
     .job-list{
       margin-top: 15px;
     }
@@ -358,9 +362,13 @@ section{
     }
 
     .count{
-      font-size: 18px;
       font-weight: 500;
       color: #4A6BB5;
+
+      span{
+        font-family: sans-serif;
+        font-size: 18px;
+      }
     }
 
     .wage{
