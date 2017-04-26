@@ -13,30 +13,11 @@
         </button>
         <% end %>
         <ul class="dropdown-menu" selection aria-labelledby="dropdownMenuDivider">
+          <% @locations.each do |location| %>
           <li>
-            <%= link_to("北京", jobs_path(:location => "北京")) %>
+            <%= link_to(location.name, jobs_path(:location => location.name)) %>
           </li>
-          <li>
-            <%= link_to("上海", jobs_path(:location => "上海")) %>
-          </li>
-          <li>
-            <%= link_to("深圳", jobs_path(:location => "深圳")) %>
-          </li>
-          <li>
-            <%= link_to("广州", jobs_path(:location => "广州")) %>
-          </li>
-          <li>
-            <%= link_to("杭州", jobs_path(:location => "杭州")) %>
-          </li>
-          <li>
-            <%= link_to("成都", jobs_path(:location => "成都")) %>
-          </li>
-          <li>
-            <%= link_to("香港", jobs_path(:location => "香港")) %>
-          </li>
-          <li>
-            <%= link_to("海外", jobs_path(:location => "海外")) %>
-          </li>
+          <% end %>
           <li>
             <%= link_to("所有城市", jobs_path(:location => "所有城市") ) %>
           </li>
@@ -55,30 +36,11 @@
         </button>
         <% end %>
         <ul class="dropdown-menu" selection aria-labelledby="dropdownMenuDivider">
+          <% @categorys.each do |category| %>
           <li>
-            <%= link_to("技术", jobs_path(:category => "技术")) %>
+            <%= link_to(category.name, jobs_path(:category => category.name)) %>
           </li>
-          <li>
-            <%= link_to("产品", jobs_path(:category => "产品")) %>
-          </li>
-          <li>
-            <%= link_to("设计", jobs_path(:category => "设计")) %>
-          </li>
-          <li>
-            <%= link_to("运营", jobs_path(:category => "运营")) %>
-          </li>
-          <li>
-            <%= link_to("市场", jobs_path(:category => "市场")) %>
-          </li>
-          <li>
-            <%= link_to("销售", jobs_path(:category => "销售")) %>
-          </li>
-          <li>
-            <%= link_to("职能", jobs_path(:category => "职能")) %>
-          </li>
-          <li>
-            <%= link_to("其他", jobs_path(:category => "其他")) %>
-          </li>
+          <% end %>
           <li>
             <%= link_to("所有类型", jobs_path(:category => "所有类型") ) %>
           </li>
@@ -130,7 +92,7 @@
           <%= job.wage_lower_bound %> k ~ <%= job.wage_upper_bound %> k
         </div>
         <div class="info-bot">
-          <span class="category"><span class="<%= render_job_category(job) %>"> <%= job.category %></span>
+          <span class="category"><span class="<%= job.category.icon %>"> <%= job.category.name %></span>
         </div>
       </div>
 
@@ -152,7 +114,7 @@
           <span class="fa fa-envelope"></span><span><%= job.contact_mail %></span>
         </div>
         <div class="company-bot">
-          <span class="fa fa-map-marker"></span><span><%= job.location %></span>
+          <span class="fa fa-map-marker"></span><span><%= job.location.name %></span>
         </div>
       </div>
     </div>
@@ -179,7 +141,7 @@
               <div>
                 <h3>
                   <%= link_to job_path(job), target: "_blank" do %>
-                    <%= job.name %> [<%= job.location %>]
+                    <%= job.name %> [<%= job.location.name %>]
                   <% end %>
                 </h3>
               </div>

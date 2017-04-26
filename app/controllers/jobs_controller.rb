@@ -3,6 +3,9 @@ class JobsController < ApplicationController
   before_action :validate_search_key, only: [:search]
 
   def index
+    @locations = Location.published.sortA
+    @categorys = Category.published.sortA
+
     # 随机推荐五个职位 #
     @suggests = Job.published.random5
 
@@ -10,19 +13,23 @@ class JobsController < ApplicationController
     # 判断是否筛选城市 #
     if params[:location].present?
       @location = params[:location]
+      @location_id = Location.find_by(name: @location)
+
       if @location == '所有城市'
         @jobs = Job.published.recent.paginate(:page => params[:page], :per_page => 10)
       else
-        @jobs = Job.where(:is_hidden => false, :location => @location).recent.paginate(:page => params[:page], :per_page => 10)
+        @jobs = Job.where(:location => @location_id).published.recent.paginate(:page => params[:page], :per_page => 10)
       end
 
     # 判断是否筛选职位类型 #
     elsif params[:category].present?
       @category = params[:category]
+      @category_id = Category.find_by(name: @category)
+
       if @category == '所有类型'
         @jobs = Job.published.recent.paginate(:page => params[:page], :per_page => 10)
       else
-        @jobs = Job.where(:is_hidden => false, :category => @category).recent.paginate(:page => params[:page], :per_page => 10)
+        @jobs = Job.where(:category => @category_id).published.recent.paginate(:page => params[:page], :per_page => 10)
       end
 
     # 判断是否筛选薪水 #

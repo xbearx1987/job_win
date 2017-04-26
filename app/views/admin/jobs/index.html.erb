@@ -102,7 +102,7 @@
       <% @jobs.each do |job| %>
       <tr class="job-list">
         <td class="title"><span class="<%= render_job_status(job) %>"></span> <%= link_to(job.name, job_path(job)) %></td>
-        <td><span class="<%= render_job_category(job) %>"> <%= job.category.name %></td>
+        <td><span class="<%= job.category.icon %>"> <%= job.category.name %></td>
         <td><%= job.company %></td>
         <td><span class="fa fa-map-marker"></span> <%= job.location.name %></td>
         <td class="wage"><%= render_job_wage(job) %></td>

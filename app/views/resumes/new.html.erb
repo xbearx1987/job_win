@@ -5,8 +5,8 @@
     <h3><span class="fa fa-tag"></span> <%= @job.name %><span class="company">  / <%= @job.company %></span></h3>
     <p>
       <span class="wage"><%= @job.wage_lower_bound %> k ~ <%= @job.wage_upper_bound %> k </span> /
-      <span><span class="fa fa-map-marker"></span> <%= @job.location %></span> /
-      <span><span class="<%= render_job_category(@job) %>"> <%= @job.category %></span>
+      <span><span class="fa fa-map-marker"></span> <%= @job.location.name %></span> /
+      <span><span class="<%= @job.category.icon %>"> <%= @job.category.name %></span>
      </p>
     <p class="created"><%= @job.created_at.strftime("%Y-%m-%d") %> <span class="website">发布于职赢网</span></p>
   </div>
