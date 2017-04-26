@@ -1,33 +1,23 @@
-  <div class="col-md-10 col-md-offset-1 job-form-content">
-    <hr style="size:2px" />
-    <%= simple_form_for [:admin,@job] do |f| %>
-      <div class="form-group">
-        <%= f.input :name, :label => false, placeholder: '请输入职位名称' %>
-        <%= f.input :content, :label => false, placeholder: '请输入职位描述', input_html: { class: 'job-content-info' } %>
-        <%= f.input :company, :label => false, placeholder: '请输入公司名称' %>
-        <hr />
-        <!--=== 职位类型 ===-->
-        <% if @job.category_id? %>
-          <%= f.input :category_id, :label => "职位类型", :collection => @categorys, :checked => @job.category, input_html: { class: 'category' } %>
-        <% else %>
-          <%= f.input :category_id, :label => "职位类型", :collection => @categorys , input_html: { class: 'category' } %>
-        <% end %>
-        <!--=== 工作地点 ===-->
-        <% if @job.location_id? %>
-          <%= f.input :location_id, :label => "工作地点", :collection => @locations, :checked => @job.location, input_html: { class: 'location' } %>
-        <% else %>
-          <%= f.input :location_id, :label => "工作地点", :collection => @locations, input_html: { class: 'location' } %>
-        <% end %>
-        <%= f.input :wage_lower_bound, :label => '薪资' do %>
-           <%= f.input_field :wage_lower_bound, :as => :string, class: "wage" %> <span class="wage-form">k ~</span>
-           <%= f.input_field :wage_upper_bound, :as => :string, class: "wage" %> <span class="wage-form">k</span>
-        <% end %>
-        <%= f.input :contact_mail, label: '联系方式', placeholder: 'user@domain.com' %>
-        <hr />
-        <span class="hidden-box"><%= f.input :is_hidden, label: '隐藏职位' %></span>
-      </div>
-      <div class="form-actions">
-        <%= f.submit "送出", disable_with: "Submiting...", class: "button"%>
-      </div>
-    <% end %>
-  </div>
+<div class="col-md-10 col-md-offset-1 job-form-content">
+  <hr style="size:2px" />
+  <%= simple_form_for [:admin,@job] do |f| %>
+    <div class="form-group">
+      <%= f.input :name, :label => false, placeholder: '请输入职位名称' %>
+      <%= f.input :content, :label => false, placeholder: '请输入职位描述', input_html: { class: 'job-content-info' } %>
+      <%= f.input :company, :label => false, placeholder: '请输入公司名称' %>
+      <hr />
+      <%= f.input :category_id, :label => "职位类型", :collection => @categorys, :checked => @job.category, input_html: { class: 'category' } %>
+      <%= f.input :location_id, :label => "工作地点", :collection => @locations, :checked => @job.location, input_html: { class: 'location' } %>
+      <%= f.input :wage_lower_bound, :label => '薪资' do %>
+         <%= f.input_field :wage_lower_bound, :as => :string, class: "wage" %> <span class="wage-form">k ~</span>
+         <%= f.input_field :wage_upper_bound, :as => :string, class: "wage" %> <span class="wage-form">k</span>
+      <% end %>
+      <%= f.input :contact_mail, label: '联系方式', placeholder: 'user@domain.com' %>
+      <hr />
+      <span class="hidden-box"><%= f.input :is_hidden, label: '隐藏职位' %></span>
+    </div>
+    <div class="form-actions">
+      <%= f.submit "送出", disable_with: "Submiting...", class: "button"%>
+    </div>
+  <% end %>
+</div>
