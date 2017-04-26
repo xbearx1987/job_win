@@ -13,20 +13,31 @@
         <tbody>
           <% i = 1 %>
           <% @locations.each do |location| %>
-          <% if i%3 == 1%>
+          <% if i%2 == 1%>
           <tr>
           <% end %>
             <td class="name-box">#<%= location.sort %> <%= location.name %></td>
             <td>
               <!--=== 修改/隐藏/显示 ===-->
               <div>
+              <%= link_to(up_admin_location_path(location), :method => :post, class: "btn btn-md btn-default sort-btn") do %>
+                <span class="fa fa-angle-up"></span>
+              <% end %>
+              <%= link_to(down_admin_location_path(location), :method => :post, class: "btn btn-md btn-default sort-btn") do %>
+                <span class="fa fa-angle-down"></span>
+              <% end %>
+
               <%= link_to(edit_admin_location_path(location), class: "btn btn-md btn-default") do %>
                 <span class="fa fa-pencil"></span>
               <% end %>
+
+              <!--=== 如果工作地点隐藏 ===-->
               <% if location.is_hidden %>
                 <%= link_to(publish_admin_location_path(location), :method => :post, class: "btn btn-md btn-default show-btn") do %>
                   <span class="fa fa-eye"></span>
                 <% end %>
+
+              <!--=== 如果工作地点公开 ===-->
               <% else %>
                 <%= link_to(hide_admin_location_path(location), :method => :post, class: "btn btn-md btn-default") do %>
                   <span class="fa fa-eye-slash"></span>
@@ -34,7 +45,7 @@
               <% end %>
               </div>
             </td>
-          <% if i%3 == 0%>
+          <% if i%2 == 0%>
           </tr>
           <% end %>
           <% i += 1 %>
