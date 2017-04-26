@@ -36,15 +36,15 @@ class JobsController < ApplicationController
     elsif params[:wage].present?
       @wage = params[:wage]
       if @wage == '5k以下'
-        @jobs = Job.wage1.recent.paginate(:page => params[:page], :per_page => 10)
+        @jobs = Job.wage1.published.recent.paginate(:page => params[:page], :per_page => 10)
       elsif @wage == '5~10k'
-        @jobs = Job.wage2.recent.paginate(:page => params[:page], :per_page => 10)
+        @jobs = Job.wage2.published.recent.paginate(:page => params[:page], :per_page => 10)
       elsif @wage == '10~15k'
-        @jobs = Job.wage3.recent.paginate(:page => params[:page], :per_page => 10)
+        @jobs = Job.wage3.published.recent.paginate(:page => params[:page], :per_page => 10)
       elsif @wage == '15~25k'
-        @jobs = Job.wage4.recent.paginate(:page => params[:page], :per_page => 10)
+        @jobs = Job.wage4.published.recent.paginate(:page => params[:page], :per_page => 10)
       else
-        @jobs = Job.wage5.recent.paginate(:page => params[:page], :per_page => 10)
+        @jobs = Job.wage5.published.recent.paginate(:page => params[:page], :per_page => 10)
       end
 
     # 预设显示所有公开职位 #
